@@ -14,12 +14,12 @@
           "longitude": 5.3811,
           "ouverture": "08/01/1848",
           "voies": "16",
-          "quais": "8",
-          "zone_tarifaire": "1",
+          "quais": "16",
+          "zone_tarifaire": "N/A",
           "accessible": "Oui",
           "communes": ["Marseille"],
-          "frequentation": "beaucoup",
-          "inaugural": "MSC"
+          "frequentation": "N/A",
+          "inaugural": ""
         }
       ],
       "sorties": [
