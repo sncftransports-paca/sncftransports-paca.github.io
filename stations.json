@@ -58,7 +58,7 @@
         {"numero": "1", "description": "Centre-ville", "ptinteret": "Place de la Liberté"}
       ],
       "enrail_links": [
-        {"style": "sncf", "link": "https://www.sncf.com/fr/gares/toulon"}
+        {"style": "sncf", "link": "https://www.sncf.com/fr/gares/toulon"},
         {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/toulon"}
       ],
       "ptinteret": "Port de Toulon",
