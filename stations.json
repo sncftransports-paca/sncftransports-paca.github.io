@@ -26,7 +26,8 @@
         {"numero": "1", "description": "Centre-ville", "ptinteret": "Vieux-Port"}
       ],
       "enrail_links": [
-        {"style": "sncf", "link": "https://www.sncf.com/fr/gares/marseille-saint-charles"}
+        {"style": "sncf", "link": "https://enrail.org/sncf/?mode=Departures&station=Marseille%20Saint-Charles"},
+        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/marseille-saint-charles"}
       ],
       "ptinteret": "Vieux-Port, Canebière",
       "repere": "Centre"
