@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Détail Station - SNCF Transports PACA</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+      padding: 20px;
+      margin: 0;
+    }
+    .station-detail {
+      background: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 30px;
+      text-align: center;
+    }
+    img.station-img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      background: #4caf50;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 50px;
+      margin: 5px;
+      font-size: 14px;
+    }
+    .badge img {
+      height: 20px;
+      width: 20px;
+      margin-right: 8px;
+    }
+    a.button {
+      display: inline-block;
+      background: #00796b;
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      margin-top: 20px;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    a.button:hover {
+      background: #004d40;
+    }
+    #map {
+      width: 100%;
+      height: 300px;
+      margin-top: 20px;
+      border-radius: 15px;
+    }
+    .image-credit {
+      font-size: 12px;
+      margin-top: 10px;
+      color: #555;
+    }
+    .image-credit a {
+      color: #00796b;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .image-credit a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<div id="station" class="station-detail">
+  <h1>Chargement...</h1>
+</div>
+
+<a href="stations.html" class="button">← Retour aux gares</a>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+// Associe types aux SVG
+function getTypeIcon(type) {
+  switch(type) {
+    case 'train':
+      return '<img src="icons/train.svg" alt="Train">';
+    case 'metro':
+      return '<img src="icons/metro.svg" alt="Métro">';
+    case 'tram':
+      return '<img src="icons/tram.svg" alt="Tramway">';
+    default:
+      return '';
+  }
+}
+
+// Paramètre l'URL
+function getQueryParam(param) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param);
+}
+
+const stationKey = getQueryParam('station');
+
+fetch('stations.json')
+  .then(response => response.json())
+  .then(data => {
+    const station = data[stationKey];
+    const container = document.getElementById('station');
+
+    if (station) {
+      container.innerHTML = `
+        <h1>${station.nom}</h1>
+        <img class="station-img" src="images/${station.image}" alt="${station.nom}">
+        <!-- Crédit de l'image -->
+        <div class="image-credit">
+          <p>Image de <a href="${station.imagepage}" target="_blank">${station.imageauthor}</a></p>
+        </div>
+        <div>
+          ${station.lignes.map(ligne => `
+            <span class="badge ${ligne.type}">
+              ${getTypeIcon(ligne.type)} ${ligne.type.toUpperCase()}
+            </span>
+          `).join(' ')}
+        </div>
+
+        <p><strong>Ouverture :</strong> ${station.statistiques[0].ouverture}</p>
+        <p><strong>Voies :</strong> ${station.statistiques[0].voies} | <strong>Quais :</strong> ${station.statistiques[0].quais}</p>
+        <p><strong>Zone :</strong> ${station.statistiques[0].zone_tarifaire}</p>
+        <p><strong>Accessibilité :</strong> ${station.statistiques[0].accessible}</p>
+        <p><strong>Fréquentation :</strong> ${station.statistiques[0].frequentation}</p>
+        <p><strong>Communes :</strong> ${station.statistiques[0].communes.join(', ')}</p>
+
+        <div id="map"></div>
+
+        <a href="${station.enrail_links[0].link}" target="_blank" class="button">Voir plus</a>
+
+        
+      `;
+
+      // Initialise Leaflet Map
+      const map = L.map('map').setView([station.statistiques[0].latitude, station.statistiques[0].longitude], 15);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap'
+      }).addTo(map);
+      L.marker([station.statistiques[0].latitude, station.statistiques[0].longitude]).addTo(map)
+        .bindPopup(station.nom)
+        .openPopup();
+    } else {
+      container.innerHTML = "<h1>Station introuvable</h1>";
+    }
+  })
+  .catch(error => {
+    console.error('Erreur chargement station:', error);
+  });
+</script>
+
+</body>
+</html>

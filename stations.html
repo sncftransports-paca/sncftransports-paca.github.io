@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Liste des Stations - SNCF Transports PACA</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #eef2f5;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 40px;
+    }
+    .stations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .station-card {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .station-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+    }
+    .station-image {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+    .station-content {
+      padding: 20px;
+    }
+    .station-content h2 {
+      font-size: 1.4em;
+      margin: 0 0 10px 0;
+      color: #00796b;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      background: #4caf50;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 50px;
+      font-size: 12px;
+      margin: 5px 5px 0 0;
+    }
+    .badge img {
+      width: 18px;
+      height: 18px;
+      margin-right: 5px;
+    }
+    .image-credit {
+      text-align: center;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+    .image-credit a {
+      color: #00796b;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .image-credit a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Nos Gares</h1>
+
+<div class="stations-grid" id="stations"></div>
+
+<script>
+// Associe type à icône
+function getTypeIcon(type) {
+  switch (type) {
+    case 'train':
+      return '<img src="icons/train.svg" alt="Train">';
+    case 'metro':
+      return '<img src="icons/metro.svg" alt="Métro">';
+    case 'tram':
+      return '<img src="icons/tram.svg" alt="Tramway">';
+    default:
+      return '';
+  }
+}
+
+fetch('stations.json')
+  .then(response => response.json())
+  .then(data => {
+    const stationsContainer = document.getElementById('stations');
+    Object.keys(data).forEach(key => {
+      const station = data[key];
+      const card = document.createElement('a');
+      card.href = `station.html?station=${encodeURIComponent(key)}`;
+      card.className = 'station-card';
+      card.innerHTML = `
+        <img class="station-image" src="images/${station.image}" alt="${station.nom}">
+        <div class="station-content">
+          <h2>${station.nom}</h2>
+          <div>
+            ${station.lignes.map(ligne => `
+              <span class="badge">${getTypeIcon(ligne.type)} ${ligne.type.toUpperCase()}</span>
+            `).join(' ')}
+          </div>
+        </div>
+        <div class="image-credit">
+          <p>Image de <a href="${station.imagepage}" target="_blank">${station.imageauthor}</a></p>
+        </div>
+      `;
+      stationsContainer.appendChild(card);
+    });
+  })
+  .catch(error => console.error('Erreur chargement gares:', error));
+</script>
+
+</body>
+</html>

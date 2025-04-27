@@ -1,0 +1,66 @@
+{
+    "Marseille Saint-Charles": {
+      "nom": "Marseille Saint-Charles",
+      "lignes": [
+        {"type": "train", "lines": ["TGV", "TER"]},
+        {"type": "metro", "lines": ["M1", "M2"]}
+      ],
+      "image": "msc.jpg",
+      "imagepage": "https://commons.wikimedia.org/w/index.php?curid=149618795",
+      "imageauthor": "Par Falk2 — Travail personnel, CC BY-SA 4.0",
+      "statistiques": [
+        {
+          "latitude": 43.3038,
+          "longitude": 5.3811,
+          "ouverture": "08/01/1848",
+          "voies": "16",
+          "quais": "8",
+          "zone_tarifaire": "1",
+          "accessible": "Oui",
+          "communes": ["Marseille"],
+          "frequentation": "beaucoup",
+          "inaugural": "MSC"
+        }
+      ],
+      "sorties": [
+        {"numero": "1", "description": "Centre-ville", "ptinteret": "Vieux-Port"}
+      ],
+      "enrail_links": [
+        {"style": "sncf", "link": "https://www.sncf.com/fr/gares/marseille-saint-charles"}
+      ],
+      "ptinteret": "Vieux-Port, Canebière",
+      "repere": "Centre"
+    },
+    "Toulon": {
+      "nom": "Toulon",
+      "lignes": [
+        {"type": "train", "lines": ["TGV", "TER"]}
+      ],
+      "image": "toulon.jpg",
+      "imagepage": "https://commons.wikimedia.org/w/index.php?curid=61014862",
+      "imageauthor": "Par Chabe01 — Travail personnel, CC BY-SA 4.0",
+      "statistiques": [
+        {
+          "latitude": 43.1242,
+          "longitude": 5.928,
+          "ouverture": "12/07/1859",
+          "voies": "6",
+          "quais": "3",
+          "zone_tarifaire": "2",
+          "accessible": "Oui",
+          "communes": ["Toulon"],
+          "frequentation": "moyen",
+          "inaugural": "TNL"
+        }
+      ],
+      "sorties": [
+        {"numero": "1", "description": "Centre-ville", "ptinteret": "Place de la Liberté"}
+      ],
+      "enrail_links": [
+        {"style": "sncf", "link": "https://www.sncf.com/fr/gares/toulon"}
+      ],
+      "ptinteret": "Port de Toulon",
+      "repere": "Centre"
+    }
+  }
+  
