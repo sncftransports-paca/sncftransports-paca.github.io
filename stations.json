@@ -70,6 +70,40 @@
       ],
       "ptinteret": "Port de Toulon",
       "repere": "Centre"
+    },
+    "Pas-des-Lanciers": {
+      "nom": "Pas-des-Lanciers",
+      "lignes": [
+        {"type": "TER", "lines": ["TER 7A", "TER 8"]}
+      ],
+      "image": "pdl.jpg",
+      "imagepage": "https://commons.wikimedia.org/w/index.php?curid=9766046",
+      "imageauthor": "Fr.Latreille",
+      "imagelicense": " — Travail personnel, CC BY-SA 3.0",
+      "statistiques": [
+        {
+          "latitude": 43.4097222,
+          "longitude": 5.253888888888889,
+          "ouverture": "01/11/1847",
+          "voies": "3",
+          "quais": "2",
+          "zone_tarifaire": "1",
+          "accessible": "Non",
+          "communes": ["Saint-Victoret"],
+          "frequentation": "114 722 voyageurs/an",
+          "inaugural": ""
+        }
+      ],
+      "sorties": [
+        {"numero": "1", "description": "Sortie principale"}
+      ],
+      "enrail_links": [
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Pas%20des%20Lanciers"},
+        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/pas-lanciers"},
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Pas%20des%20Lanciers"}
+      ],
+      "ptinteret": "",
+      "repere": ""
     }
-}          
+  }         
           
