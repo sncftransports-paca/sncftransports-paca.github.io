@@ -151,12 +151,38 @@
         background-color: #004d40;
         transform: scale(1.1);
     }
+    .enrail-link {
+      text-decoration: none;
+      color: #000;
+    }
+    a.button {
+      display: inline-block;
+      background: #00796b;
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      margin-top: 20px;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: background 0.3s;
+      padding: 12px 25px;
+      text-align: center;
+    }
+    a.button:hover {
+      background: #004d40;
+    }
+    .retour-container {
+  margin-top: 40px;
+  text-align: center;
+}
   </style>
 </head>
 <body>
 
-<!-- Bouton de retour aux gares -->
-<a href="stations.html" class="button">← Retour aux gares</a>
+  <div class="retour-container">
+    <!-- Bouton de retour aux gares -->
+    <a href="stations.html" class="button">← Retour aux gares</a>
+  </div>
 
 <div id="station" class="station-detail">
   <h1>Chargement...</h1>
@@ -223,13 +249,13 @@ fetch('stations.json')
         <div class="sorties-section fade-in full-width">
         <div class="sorties-grid">
             ${station.sorties.map(sortie => `
-                <div class="sortie-card">
-                    <h3>Sortie ${sortie.numero}</h3>
-                    <p><strong>Description :</strong> ${sortie.description}</p>
-                    <!--<p><strong>Repère :</strong> ${sortie.repere}</p>-->
-                    <p><strong>Point d'interet :</strong> ${sortie.ptinteret}</p>
-                </div>
-            `).join('')}
+      <div class="sortie-card">
+        <h3>Sortie ${sortie.numero}</h3>
+        <p><strong>Description :</strong> ${sortie.description}</p>
+        ${sortie.ptinteret ? `<p><strong>Point d'intérêt :</strong> ${sortie.ptinteret}</p>` : ''}
+        ${sortie.repere ? `<p><strong>Repère :</strong> ${sortie.repere}</p>`: ''}
+      </div>
+    `).join('')}
         </div>
         </div>
         
@@ -237,7 +263,7 @@ fetch('stations.json')
         <div id="map" class="fade-in"></div>
         
         <div id="iframe-container" class="station-detail fade-in">
-        <h2>Écrans Enrail</h2>
+        <h2>Écrans <a href="https://enrail.org" class="enrail-link">Enrail</a></h2>
         <p>Écran des prochains départs</p>
         <!-- Iframe avec le lien vers Enrail -->
         <iframe src="${station.enrail_links[0].link}" title="Intégration Enrail, prochains départs"></iframe>
@@ -285,7 +311,18 @@ const scrollTopBtn = document.getElementById("scrollTopBtn");
   .catch(error => {
     console.error('Erreur chargement station:', error);
   });
+// Fonction pour charger le footer depuis un fichier HTML
+function loadFooter() {
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(html => {
+        document.body.insertAdjacentHTML('beforeend', html);
+      })
+      .catch(error => console.warn('Erreur lors du chargement du footer:', error));
+  }
 
+  // Appeler la fonction pour charger le footer
+  loadFooter();
  
 </script>
 <button id="scrollTopBtn" title="Remonter">↑</button>

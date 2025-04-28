@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Détail Ligne - SNCF Transports PACA</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+      margin: 0;
+      padding: 20px;
+    }
+    .ligne-detail {
+      background: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 30px;
+      text-align: center;
+    }
+    .badge {
+      display: inline-block;
+      background: #4caf50;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 50px;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+    a.button {
+      display: inline-block;
+      background: #00796b;
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      margin-top: 20px;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: background 0.3s;
+      padding: 12px 25px;
+      text-align: center;
+    }
+    a.button:hover {
+      background: #004d40;
+    }
+    .retour-container {
+  margin-top: 40px;
+  text-align: center;
+}
+    #map {
+      margin-top: 30px;
+      width: 100%;
+      height: 300px;
+      border-radius: 15px;
+    }
+    .logo-zou {
+  text-align: left;
+  margin-bottom: 15px;
+}
+.logo-zou img {
+  height: 50px;
+}
+</style>
+  </style>
+</head>
+<body>
+  <div class="retour-container">
+    <a href="index.html" class="button">← Retour à l'accueil</a>
+  </div>
+<div id="ligne" class="ligne-detail">
+  <h1>Chargement...</h1>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+function getQueryParam(param) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param);
+}
+
+const ligneId = getQueryParam('ligne');
+
+fetch('lignes.json')
+  .then(response => response.json())
+  .then(data => {
+    const ligne = data.lignes.find(l => l.id == ligneId);
+    const container = document.getElementById('ligne');
+
+    if (ligne) {
+      // Données supplémentaires fictives pour l'affichage (exemple, tu peux les mettre dans ton JSON plus tard)
+      const infosSupplementaires = {
+        1: { distance: "90 km", duree: "1h20", frequence: "1 train par heure" },
+        2: { distance: "34 km", duree: "30 min", frequence: "2 trains par heure" },
+        3: { distance: "23 km", duree: "25 min", frequence: "1 train par heure" },
+        4: { distance: "65 km", duree: "1h", frequence: "1 train toutes les 2h" },
+        5: { distance: "90 km", duree: "1h30", frequence: "1 train par jour" },
+        6: { distance: "35 km", duree: "30 min", frequence: "1 train toutes les 2h" },
+        7: { distance: "150 km", duree: "3h", frequence: "2 trains par jour" },
+        8: { distance: "30 km", duree: "20 min", frequence: "2 trains par heure" }
+      };
+
+      const infos = infosSupplementaires[ligne.id] || { distance: "?", duree: "?", frequence: "?" };
+
+      container.innerHTML = `
+        <div class="logo-zou">
+            <img src="icons/logo-zou-color.svg" alt="Logo ZOU PACA" style="height: 60px;">
+        </div>
+        <h1>${ligne.nom}</h1>
+        <div class="badge">${ligne.type}</div>
+        <p><strong>Départ :</strong> ${ligne.depart}</p>
+        <p><strong>Arrivée :</strong> ${ligne.arrivee}</p>
+        <p><strong>Distance :</strong> ${infos.distance}</p>
+        <p><strong>Durée estimée :</strong> ${infos.duree}</p>
+        <p><strong>Fréquence :</strong> ${infos.frequence}</p>
+        <div id="map"></div>
+      `;
+
+      // Optionnel : afficher la carte OpenStreetMap (exemple générique Marseille)
+      const map = L.map('map').setView([43.3, 5.4], 8); // PACA zoom
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap'
+      }).addTo(map);
+    } else {
+      container.innerHTML = "<h1>Ligne introuvable</h1>";
+    }
+  })
+  .catch(error => {
+    console.error('Erreur lors du chargement de la ligne :', error);
+  });
+  // Fonction pour charger le footer depuis un fichier HTML
+  function loadFooter() {
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(html => {
+        document.body.insertAdjacentHTML('beforeend', html);
+      })
+      .catch(error => console.warn('Erreur lors du chargement du footer:', error));
+  }
+
+  // Appeler la fonction pour charger le footer
+  loadFooter();
+</script>
+
+</body>
+</html>

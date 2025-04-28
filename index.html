@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Accueil - SNCF Transports PACA</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #eef2f7;
+      margin: 0;
+      padding: 20px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    header h1 {
+      color: #005baa;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+    .lignes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .ligne-card {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .ligne-card:hover {
+      transform: translateY(-5px);
+    }
+    .ligne-card img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 10px;
+    }
+    .ligne-card h2 {
+      font-size: 1.2em;
+      margin: 10px 0;
+      color: #333;
+    }
+    .ligne-card a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 15px;
+      background: #00796b;
+      color: white;
+      text-decoration: none;
+      border-radius: 20px;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+    .ligne-card a:hover {
+      background: #004d40;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Bienvenue sur SNCF Transports PACA</h1>
+  <p>Choisissez votre ligne :</p>
+</header>
+
+<div class="lignes-grid" id="lignes-grid">
+  <!-- Les lignes seront chargées ici dynamiquement -->
+</div>
+
+<script>
+fetch('lignes.json')
+  .then(response => response.json())
+  .then(data => {
+    const grid = document.getElementById('lignes-grid');
+    data.lignes.forEach(ligne => {
+      // Détermine l'icône selon le type
+      let icon = 'icons/ter.svg'; // Par défaut
+      if (ligne.type === 'Train des Pignes') {
+        icon = 'icons/train_pignes.svg';
+      }
+      const card = document.createElement('div');
+      card.className = 'ligne-card';
+      card.innerHTML = `
+        <img src="${icon}" alt="Icône ${ligne.nom}">
+        <h2>${ligne.nom}</h2>
+        <a href="ligne.html?ligne=${ligne.id}">Voir la ligne</a>
+      `;
+      grid.appendChild(card);
+    });
+  })
+  .catch(error => {
+    console.error('Erreur lors du chargement des lignes :', error);
+  });
+    // Fonction pour charger le footer depuis un fichier HTML
+    function loadFooter() {
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(html => {
+        document.body.insertAdjacentHTML('beforeend', html);
+      })
+      .catch(error => console.warn('Erreur lors du chargement du footer:', error));
+  }
+
+  // Appeler la fonction pour charger le footer
+  loadFooter();
+</script>
+
+</body>
+</html>

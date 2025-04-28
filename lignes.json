@@ -1,0 +1,75 @@
+{
+    "lignes": [
+      {
+        "id": 1,
+        "nom": "Marseille - Hyères",
+        "depart": "Marseille Saint-Charles",
+        "arrivee": "Hyères",
+        "type": "TER",
+        "distance": "90 km",
+        "duree": "1h20",
+        "frequence": "1 train par heure"
+      },
+      {
+        "id": 2,
+        "nom": "Nice - Cannes",
+        "depart": "Nice Ville",
+        "arrivee": "Cannes",
+        "type": "TER",
+        "distance": "34 km",
+        "duree": "30 min",
+        "frequence": "2 trains par heure"
+      },
+      {
+        "id": 3,
+        "nom": "Avignon - Cavaillon",
+        "depart": "Avignon Centre",
+        "arrivee": "Cavaillon",
+        "type": "TER",
+        "distance": "23 km",
+        "duree": "25 min",
+        "frequence": "1 train par heure"
+      },
+      {
+        "id": 4,
+        "nom": "Toulon - Marseille",
+        "depart": "Toulon",
+        "arrivee": "Marseille Saint-Charles",
+        "type": "TER",
+        "distance": "65 km",
+        "duree": "1h",
+        "frequence": "1 train toutes les 2 heures"
+      },
+      {
+        "id": 5,
+        "nom": "Gap - Briançon",
+        "depart": "Gap",
+        "arrivee": "Briançon",
+        "type": "TER",
+        "distance": "90 km",
+        "duree": "1h30",
+        "frequence": "1 train par jour"
+      },
+      {
+        "id": 6,
+        "nom": "Arles - Avignon",
+        "depart": "Arles",
+        "arrivee": "Avignon Centre",
+        "type": "TER",
+        "distance": "35 km",
+        "duree": "30 min",
+        "frequence": "1 train toutes les 2 heures"
+      },
+      {
+        "id": 7,
+        "nom": "Aix-en-Provence - Marseille",
+        "depart": "Aix-en-Provence",
+        "arrivee": "Marseille Saint-Charles",
+        "type": "TER",
+        "distance": "30 km",
+        "duree": "20 min",
+        "frequence": "2 trains par heure"
+      }
+    ]
+  }
+  
