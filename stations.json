@@ -56,16 +56,17 @@
           "zone_tarifaire": "2",
           "accessible": "Oui",
           "communes": ["Toulon"],
-          "frequentation": "moyen",
-          "inaugural": "TNL"
+          "frequentation": "N/A",
+          "inaugural": ""
         }
       ],
       "sorties": [
         {"numero": "1", "description": "Centre-ville", "ptinteret": "Place de la Liberté"}
       ],
       "enrail_links": [
-        {"style": "sncf", "link": "https://www.sncf.com/fr/gares/toulon"},
-        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/toulon"}
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Toulon"},
+        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/toulon"},
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Toulon"}
       ],
       "ptinteret": "Port de Toulon",
       "repere": "Centre"
