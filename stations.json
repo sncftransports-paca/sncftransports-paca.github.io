@@ -4,6 +4,8 @@
       "lignes": [
         {"type": "TER", "lines": ["TER 1", "TER 2"]},
         {"type": "TGV inOui", "lines": ["TGV 1", "TGV 2"]},
+        {"type": "TGV OUIGO", "lines":["OUIGO 1", "OUIGO 2"]},
+        {"type": "Intercités", "lines": ["IC1"]},
         {"type": "métro", "lines": ["M1", "M2"]}
       ],
       "image": "msc.jpg",
@@ -103,6 +105,38 @@
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Pas%20des%20Lanciers"}
       ],
       "repere": ""
+    },
+    "Marseille-Blancarde": {
+      "nom": "Marseille-Blancarde",
+      "lignes": [
+        {"type": "TER", "lines": ["TER 1", "TER 6"]}
+      ],
+      "image": "m-b.jpg",
+      "imagepage": "https://commons.wikimedia.org/w/index.php?curid=151883013",
+      "imageauthor": "Remontees",
+      "imagelicense": " — Travail personnel, CC BY-SA 4.0",
+      "statistiques": [
+        {
+          "latitude": 43.2961111,
+          "longitude": 5.406388888888889,
+          "ouverture": "N/A",
+          "voies": "6 (+ voies de service)",
+          "quais": "5 (dont 2 inutilisés)",
+          "zone_tarifaire": "1",
+          "accessible": "N/A",
+          "communes": ["Marseille"],
+          "frequentation": "691 530 voyageurs/an",
+          "inaugural": ""
+        }
+      ],
+      "sorties": [
+        {"numero": "1", "description": "Sortie principale"}
+      ],
+      "enrail_links": [
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Marseille%20Blancarde"},
+        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/marseille-blancarde"},
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Marseille%20Blancarde"}
+      ],
+      "repere": ""
     }
   }         
-          

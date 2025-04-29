@@ -5,15 +5,38 @@
         "nom": "Ligne Marseille - Hyères",
         "depart": "Marseille Saint-Charles",
         "links": [
-          {"stationname": "Marseille Saint-Charles", "stationlink": "station.html?station=Marseille%20Saint-Charles"}
+          {"stationname": "Marseille Saint-Charles", "stationlink": "station.html?station=Marseille%20Saint-Charles"},
+          {"stationname": "Hyères", "stationlink": "construction.html"}
         ],
-        
+        "stations": [
+        {
+          "nom": "Marseille Saint-Charles",
+          "latitude": 43.3038,
+          "longitude": 5.3811,
+          "id": "Marseille%20Saint-Charles"
+        },
+        {
+          "nom": "Marseille-Blancarde",
+          "latitude": 43.2961111,
+          "longitude": 5.406388888888889,
+          "id": "Marseille-Blancarde"
+        },
+        {
+          "nom": "Toulon",
+          "latitude": 43.128720348773214,
+          "longitude": 5.929503666761691,
+          "id": "Toulon"
+        },
+        {
+          "nom": "Hyères",
+          "latitude": 43.120,
+          "longitude": 6.130
+        }
+      ],
         "arrivee": "Hyères",
         "distance": "N/A km",
         "duree": "N/A",
-        "type": "TER",
-        "stations": [
-        ]
+        "type": "TER"
       },
       {
         "id": 2,

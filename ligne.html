@@ -96,56 +96,67 @@
   <div class="retour-container">
     <a href="index.html" class="button">← Retour à l'accueil</a>
   </div>
-<div id="ligne" class="ligne-detail">
-  <h1>Chargement...</h1>
-</div>
+  <div id="ligne" class="ligne-detail">
+    <h1>Chargement...</h1>
+  </div>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script>
-function getQueryParam(param) {
-  const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get(param);
-}
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+  function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+  }
 
-const ligneId = getQueryParam('ligne');
+  const ligneId = getQueryParam('ligne');
 
-fetch('lignes.json')
+  fetch('lignes.json')
   .then(response => response.json())
   .then(data => {
     const ligne = data.lignes.find(l => l.id == ligneId);
     const container = document.getElementById('ligne');
-
     if (ligne) {
-      const infos = ligne;
-
       container.innerHTML = `
         <div class="logo-zou">
-            <img src="icons/logo-zou-color.svg" alt="Logo ZOU! PACA" style="height: 60px;">
+            <img src="icons/logo-zou-color.svg" alt="Logo ZOU PACA" style="height: 60px;">
         </div>
         <h1>${ligne.nom}</h1>
         <div class="badge">${ligne.type}</div>
         <p><strong>Départ :</strong> <a href="${ligne.links[0].stationlink}" class="station-link">${ligne.depart}</a></p>
-        <p><strong>Arrivée :</strong> ${ligne.arrivee}</p>
-        <p><strong>Distance :</strong> ${infos.distance}</p>
-        <p><strong>Durée estimée :</strong> ${infos.duree}</p>
-
-  <div class="ligne-detail">
-    <h1>Plan et carte de la ligne</h1>
-    <div class="map-container">
-      <!-- Insérer la carte SVG -->
-      <object data="maps/TER${ligne.id}.png" type="image/png" class="map-svg"></object>
-    </div>
-    <div id="map"></div>
-  </div>
-
-        
+        <p><strong>Arrivée :</strong> <a href="${ligne.links[1].stationlink}" class="station-link">${ligne.arrivee}</a></p>
+        <p><strong>Distance :</strong> ${ligne.distance || '?'}</p>
+        <p><strong>Durée estimée :</strong> ${ligne.duree || '?'}</p>
+        <p><strong>Fréquence :</strong> ${ligne.frequence || '?'}</p>
+        <div id="map"></div>
       `;
 
-      // Optionnel : afficher la carte OpenStreetMap (exemple générique Marseille)
-      const map = L.map('map').setView([43.3, 5.4], 8); // PACA zoom
+      // Création d'une polyline avec les coordonnées des stations
+      const coordinates = ligne.stations.map(station => [station.latitude, station.longitude]);
+
+      const map = L.map('map').setView(coordinates[0], 9);
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap'
       }).addTo(map);
+
+      L.polyline(coordinates, {
+        color: 'blue',
+        weight: 4,
+        opacity: 0.7,
+        smoothFactor: 1
+      }).addTo(map);
+
+      ligne.stations.forEach(station => {
+  const stationLink = station.id
+    ? `station.html?station=${station.id}`
+    : 'construction.html';
+
+  L.marker([station.latitude, station.longitude])
+    .addTo(map)
+    .bindPopup(`
+      <strong>${station.nom}</strong><br>
+      <a href="${stationLink}">Voir la station</a>
+    `);
+});
+
     } else {
       container.innerHTML = "<h1>Ligne introuvable</h1>";
     }
@@ -169,3 +180,4 @@ fetch('lignes.json')
 
 </body>
 </html>
+
