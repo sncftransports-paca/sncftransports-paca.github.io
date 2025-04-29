@@ -1,9 +1,9 @@
-name: Discord Notification on Push
+name: Discord Notification
 
 on:
   push:
     branches:
-      - main  # ou la branche que tu veux surveiller
+      - main
 
 jobs:
   notify:
