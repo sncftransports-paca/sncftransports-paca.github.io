@@ -21,8 +21,8 @@ jobs:
           COMMIT_MSG_BODY=$(git log -1 --pretty=format:'%b')
 
           # Associer les noms Git aux IDs Discord
-          if [ "$AUTHOR_NAME" = "Jonathan Garay" ]; then
-            DISCORD_USER_ID="123456789012345678"  # Remplace par ton vrai ID Discord
+          if [ "$AUTHOR_NAME" = "Le J" ]; then
+            DISCORD_USER_ID="962313048926855188"  # Remplace par ton vrai ID Discord
           else
             DISCORD_USER_ID=""
           fi
