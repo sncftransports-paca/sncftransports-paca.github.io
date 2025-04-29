@@ -1,4 +1,4 @@
-name: Discord Notification with Embed
+name: Discord Notification with Embed and Mention
 
 on:
   push:
@@ -12,7 +12,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Notify Discord with embed
+      - name: Notify Discord with embed and mention
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
@@ -20,9 +20,24 @@ jobs:
           COMMIT_MSG_TITLE=$(git log -1 --pretty=format:'%s')
           COMMIT_MSG_BODY=$(git log -1 --pretty=format:'%b')
 
+          # Associer les noms Git aux IDs Discord
+          if [ "$AUTHOR_NAME" = "Le J" ]; then
+            DISCORD_USER_ID="962313048926855188"  # remplace par ton vrai ID
+          else
+            DISCORD_USER_ID=""
+          fi
+
+          # Préparer la mention
+          if [ -n "$DISCORD_USER_ID" ]; then
+            MENTION="<@$DISCORD_USER_ID>"
+          else
+            MENTION=""
+          fi
+
           curl -H "Content-Type: application/json" \
           -X POST \
           -d '{
+            "content": "'"${MENTION}"'",
             "embeds": [{
               "title": "🚀 Nouveau commit poussé",
               "description": "**Auteur : '"${AUTHOR_NAME}"'**\n**Dépôt :** '"${{ github.repository }}"'",
