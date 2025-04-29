@@ -1,4 +1,4 @@
-name: Discord Notification
+name: Discord Notification with Embed
 
 on:
   push:
@@ -9,11 +9,38 @@ jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
-      - name: Notify Discord
+      - name: Notify Discord with embed
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
           curl -H "Content-Type: application/json" \
           -X POST \
-          -d "{\"content\": \"📢 Nouveau commit par **${{ github.actor }}** sur **${{ github.repository }}**\n[Voir le commit](https://github.com/${{ github.repository }}/commit/${{ github.sha }})\"}" \
+          -d '{
+            "embeds": [{
+              "title": "🚀 Nouveau commit",
+              "description": "**${{ github.actor }}** a poussé un commit sur **${{ github.repository }}**.",
+              "url": "https://github.com/${{ github.repository }}/commit/${{ github.sha }}",
+              "color": 5814783,
+              "fields": [
+                {
+                  "name": "Message",
+                  "value": "'"$(git log -1 --pretty=%B | head -n 1)"'"
+                },
+                {
+                  "name": "Branche",
+                  "value": "${{ github.ref_name }}",
+                  "inline": true
+                },
+                {
+                  "name": "Commit",
+                  "value": "[Voir le commit](https://github.com/${{ github.repository }}/commit/${{ github.sha }})",
+                  "inline": true
+                }
+              ],
+              "footer": {
+                "text": "GitHub Actions via Discord Webhook"
+              },
+              "timestamp": "'"$(date --iso-8601=seconds)"'"
+            }]
+          }' \
           $DISCORD_WEBHOOK
