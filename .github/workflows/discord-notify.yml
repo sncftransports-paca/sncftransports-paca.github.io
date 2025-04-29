@@ -1,4 +1,4 @@
-name: Discord Notification with Embed and Mention
+name: Discord Notification with Embed and Mention in Author Name
 
 on:
   push:
@@ -12,7 +12,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Notify Discord with embed and mention
+      - name: Notify Discord with embed and inline mention
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
@@ -21,26 +21,25 @@ jobs:
           COMMIT_MSG_BODY=$(git log -1 --pretty=format:'%b')
 
           # Associer les noms Git aux IDs Discord
-          if [ "$AUTHOR_NAME" = "Le J" ]; then
-            DISCORD_USER_ID="962313048926855188"  # remplace par ton vrai ID
+          if [ "$AUTHOR_NAME" = "Jonathan Garay" ]; then
+            DISCORD_USER_ID="123456789012345678"  # Remplace par ton vrai ID Discord
           else
             DISCORD_USER_ID=""
           fi
 
-          # Préparer la mention
+          # Construire l'affichage de l'auteur avec mention
           if [ -n "$DISCORD_USER_ID" ]; then
-            MENTION="<@$DISCORD_USER_ID>"
+            AUTHOR_FIELD="**${AUTHOR_NAME}** (<@${DISCORD_USER_ID}>)"
           else
-            MENTION=""
+            AUTHOR_FIELD="**${AUTHOR_NAME}**"
           fi
 
           curl -H "Content-Type: application/json" \
           -X POST \
           -d '{
-            
             "embeds": [{
               "title": "🚀 Nouveau commit poussé",
-              "description": "**Auteur : '"${AUTHOR_NAME} ("content": "'"${MENTION}"'",)"'**\n**Dépôt :** '"${{ github.repository }}"'",
+              "description": "Auteur : '"${AUTHOR_FIELD}"'\n**Dépôt :** '"${{ github.repository }}"'",
               "url": "https://github.com/${{ github.repository }}/commit/${{ github.sha }}",
               "color": 5814783,
               "fields": [
@@ -64,7 +63,7 @@ jobs:
                 }
               ],
               "footer": {
-                "text": "GitHub Actions via Discord Webhook"
+                "text": "SNCF Transports PACA"
               },
               "timestamp": "'"$(date --iso-8601=seconds)"'"
             }]
