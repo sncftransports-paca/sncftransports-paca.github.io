@@ -16,19 +16,26 @@ jobs:
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
-          COMMIT_MSG=$(git log -1 --pretty=%B | head -n 1)
+          AUTHOR_NAME=$(git log -1 --pretty=format:'%an')
+          COMMIT_MSG_TITLE=$(git log -1 --pretty=format:'%s')
+          COMMIT_MSG_BODY=$(git log -1 --pretty=format:'%b')
+
           curl -H "Content-Type: application/json" \
           -X POST \
           -d '{
             "embeds": [{
-              "title": "🚀 Nouveau commit",
-              "description": "**${{ github.actor }}** a poussé un commit sur **${{ github.repository }}**.",
+              "title": "🚀 Nouveau commit poussé",
+              "description": "**Auteur : '"${AUTHOR_NAME}"'**\n**Dépôt :** '"${{ github.repository }}"'",
               "url": "https://github.com/${{ github.repository }}/commit/${{ github.sha }}",
               "color": 5814783,
               "fields": [
                 {
                   "name": "Message",
-                  "value": "'"${COMMIT_MSG}"'"
+                  "value": "'"${COMMIT_MSG_TITLE}"'"
+                },
+                {
+                  "name": "Description",
+                  "value": "'"${COMMIT_MSG_BODY:-_Aucune description_}"'"
                 },
                 {
                   "name": "Branche",
@@ -36,13 +43,13 @@ jobs:
                   "inline": true
                 },
                 {
-                  "name": "Commit",
+                  "name": "Lien",
                   "value": "[Voir le commit](https://github.com/${{ github.repository }}/commit/${{ github.sha }})",
                   "inline": true
                 }
               ],
               "footer": {
-                "text": "SNCF Transports PACA"
+                "text": "GitHub Actions via Discord Webhook"
               },
               "timestamp": "'"$(date --iso-8601=seconds)"'"
             }]
