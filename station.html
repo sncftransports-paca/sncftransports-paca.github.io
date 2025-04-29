@@ -175,6 +175,15 @@
   margin-top: 40px;
   text-align: center;
 }
+.enrail-iframe {
+  display: block;
+	width: 100%; /* S'adapte à la largeur de la boîte */
+	height: auto; /* Garde les proportions */
+	aspect-ratio: 16/9;
+	border-radius: 10px;
+	margin-bottom: 5px !important;
+	border: none;
+}
   </style>
 </head>
 <body>
@@ -266,10 +275,10 @@ fetch('stations.json')
         <h2>Écrans <a href="https://enrail.org" class="enrail-link">Enrail</a></h2>
         <p>Écran des prochains départs</p>
         <!-- Iframe avec le lien vers Enrail -->
-        <iframe src="${station.enrail_links[0].link}" title="Intégration Enrail, prochains départs"></iframe>
+        <iframe src="${station.enrail_links[0].link}" title="Intégration Enrail, prochains départs" class="enrail-iframe"></iframe>
         <p>Écran des prochaines arrivées</p>
         <!-- Iframe avec le lien vers Enrail -->
-        <iframe src="${station.enrail_links[2].link}" title="Informations supplémentaires"></iframe>
+        <iframe src="${station.enrail_links[2].link}" title="Informations supplémentaires" class="enrail-iframe"></iframe>
         </div>
         
 
