@@ -2,13 +2,18 @@
     "lignes": [
       {
         "id": 1,
-        "nom": "Marseille - Hyères",
+        "nom": "Ligne Marseille - Hyères",
         "depart": "Marseille Saint-Charles",
+        "links": [
+          {"stationname": "Marseille Saint-Charles", "stationlink": "station.html?station=Marseille%20Saint-Charles"}
+        ],
+        
         "arrivee": "Hyères",
+        "distance": "N/A km",
+        "duree": "N/A",
         "type": "TER",
-        "distance": "90 km",
-        "duree": "1h20",
-        "frequence": "1 train par heure"
+        "stations": [
+        ]
       },
       {
         "id": 2,
@@ -17,8 +22,7 @@
         "arrivee": "Cannes",
         "type": "TER",
         "distance": "34 km",
-        "duree": "30 min",
-        "frequence": "2 trains par heure"
+        "duree": "30 min"
       },
       {
         "id": 3,
@@ -27,8 +31,7 @@
         "arrivee": "Cavaillon",
         "type": "TER",
         "distance": "23 km",
-        "duree": "25 min",
-        "frequence": "1 train par heure"
+        "duree": "25 min"
       },
       {
         "id": 4,
@@ -37,8 +40,7 @@
         "arrivee": "Marseille Saint-Charles",
         "type": "TER",
         "distance": "65 km",
-        "duree": "1h",
-        "frequence": "1 train toutes les 2 heures"
+        "duree": "1h"
       },
       {
         "id": 5,
@@ -47,8 +49,7 @@
         "arrivee": "Briançon",
         "type": "TER",
         "distance": "90 km",
-        "duree": "1h30",
-        "frequence": "1 train par jour"
+        "duree": "1h30"
       },
       {
         "id": 6,
@@ -57,8 +58,7 @@
         "arrivee": "Avignon Centre",
         "type": "TER",
         "distance": "35 km",
-        "duree": "30 min",
-        "frequence": "1 train toutes les 2 heures"
+        "duree": "30 min"
       },
       {
         "id": 7,
@@ -67,8 +67,7 @@
         "arrivee": "Marseille Saint-Charles",
         "type": "TER",
         "distance": "30 km",
-        "duree": "20 min",
-        "frequence": "2 trains par heure"
+        "duree": "20 min"
       }
     ]
   }

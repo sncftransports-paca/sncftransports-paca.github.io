@@ -42,7 +42,7 @@ jobs:
                 }
               ],
               "footer": {
-                "text": "GitHub Actions via Discord Webhook"
+                "text": "SNCF Transports PACA"
               },
               "timestamp": "'"$(date --iso-8601=seconds)"'"
             }]
