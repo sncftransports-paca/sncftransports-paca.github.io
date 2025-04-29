@@ -1,4 +1,4 @@
-name: Discord Notification with Embed and Mention in Author Name
+name: Discord Notification with Role and User Mentions
 
 on:
   push:
@@ -12,31 +12,39 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Notify Discord with embed and inline mention
+      - name: Notify Discord with embed and mentions
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
+          # Récupérer infos du commit
           AUTHOR_NAME=$(git log -1 --pretty=format:'%an')
           COMMIT_MSG_TITLE=$(git log -1 --pretty=format:'%s')
           COMMIT_MSG_BODY=$(git log -1 --pretty=format:'%b')
 
-          # Associer les noms Git aux IDs Discord
-          if [ "$AUTHOR_NAME" = "Le J" ]; then
-            DISCORD_USER_ID="962313048926855188"  # Remplace par ton vrai ID Discord
+          # Mapping GitHub author → Discord user ID
+          if [ "$AUTHOR_NAME" = "Jonathan Garay" ]; then
+            DISCORD_USER_ID="123456789012345678"  # ton ID Discord
           else
             DISCORD_USER_ID=""
           fi
 
-          # Construire l'affichage de l'auteur avec mention
+          # ID du rôle Discord à mentionner (ex: @Développeurs)
+          DISCORD_ROLE_ID="1366866195911020544"  # remplace par ton vrai ID de rôle
+
+          # Mention utilisateur (inline)
           if [ -n "$DISCORD_USER_ID" ]; then
             AUTHOR_FIELD="**${AUTHOR_NAME}** (<@${DISCORD_USER_ID}>)"
           else
             AUTHOR_FIELD="**${AUTHOR_NAME}**"
           fi
 
+          # Mention rôle (envoyé dans le champ `content`)
+          MENTION_ROLE="<@&${DISCORD_ROLE_ID}>"
+
           curl -H "Content-Type: application/json" \
           -X POST \
           -d '{
+            "content": "'"${MENTION_ROLE}"'",
             "embeds": [{
               "title": "🚀 Nouveau commit poussé",
               "description": "Auteur : '"${AUTHOR_FIELD}"'\n**Dépôt :** '"${{ github.repository }}"'",
@@ -63,7 +71,7 @@ jobs:
                 }
               ],
               "footer": {
-                "text": "SNCF Transports PACA"
+                "text": "GitHub Actions via Discord Webhook"
               },
               "timestamp": "'"$(date --iso-8601=seconds)"'"
             }]
