@@ -37,10 +37,10 @@ jobs:
           curl -H "Content-Type: application/json" \
           -X POST \
           -d '{
-            "content": "'"${MENTION}"'",
+            
             "embeds": [{
               "title": "🚀 Nouveau commit poussé",
-              "description": "**Auteur : '"${AUTHOR_NAME}"'**\n**Dépôt :** '"${{ github.repository }}"'",
+              "description": "**Auteur : '"${AUTHOR_NAME} ("content": "'"${MENTION}"'",)"'**\n**Dépôt :** '"${{ github.repository }}"'",
               "url": "https://github.com/${{ github.repository }}/commit/${{ github.sha }}",
               "color": 5814783,
               "fields": [
