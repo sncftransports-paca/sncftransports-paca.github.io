@@ -9,10 +9,14 @@ jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Notify Discord with embed
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
+          COMMIT_MSG=$(git log -1 --pretty=%B | head -n 1)
           curl -H "Content-Type: application/json" \
           -X POST \
           -d '{
@@ -24,7 +28,7 @@ jobs:
               "fields": [
                 {
                   "name": "Message",
-                  "value": "'"$(git log -1 --pretty=%B | head -n 1)"'"
+                  "value": "'"${COMMIT_MSG}"'"
                 },
                 {
                   "name": "Branche",
