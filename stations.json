@@ -247,5 +247,39 @@
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Avignon%20TGV"}
       ],
       "repere": ""
+    },
+    "vitrolles-aéroport-marseille-provence": {
+      "nom": "Vitrolles-Aéroport-Marseille-Provence",
+      "lignes": [
+        {"type": "TER", "lines": ["TER 7A", "TER 10"]}
+      ],
+      "lien": "station.html?station=vitrolles-aéroport-marseille-provence",
+      "image": "vamp.jpg",
+      "imagepage": "https://commons.wikimedia.org/w/index.php?curid=113500522",
+      "imageauthor": "Homère plus",
+      "imagelicense": "— Travail personnel, CC BY-SA 4.0",
+      "statistiques": [ 
+        {
+          "latitude": 43.4416667,
+          "longitude": 5.237222222222222,
+          "ouverture": "14/12/2008",
+          "voies": "2",
+          "quais": "2",
+          "zone_tarifaire": "",
+          "accessible": "N/A",
+          "communes": ["Vitrolles", "Marignane"],
+          "frequentation": "589 410 voyageurs/an",
+          "inaugural": ""
+        }
+      ],
+      "sorties": [
+        {"numero": "1", "description": "Sortie principale"}
+      ],
+      "enrail_links": [
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Vitrolles%20A%C3%A9roport%20Marseille%20Provence"},
+        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/vitrolles-aeroport-marseille-provence"},
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Vitrolles%20A%C3%A9roport%20Marseille%20Provence"}
+      ],
+      "repere": ""
     }
   }         
