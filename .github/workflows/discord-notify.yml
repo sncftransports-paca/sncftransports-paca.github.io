@@ -22,8 +22,8 @@ jobs:
           COMMIT_MSG_BODY=$(git log -1 --pretty=format:'%b')
 
           # Mapping GitHub author → Discord user ID
-          if [ "$AUTHOR_NAME" = "Jonathan Garay" ]; then
-            DISCORD_USER_ID="123456789012345678"  # ton ID Discord
+          if [ "$AUTHOR_NAME" = "Le J" ]; then
+            DISCORD_USER_ID="962313048926855188"  # ton ID Discord
           else
             DISCORD_USER_ID=""
           fi
