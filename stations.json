@@ -8,6 +8,7 @@
         {"type": "Intercités", "lines": ["IC1"]},
         {"type": "métro", "lines": ["M1", "M2"]}
       ],
+      "lien": "station.html?station=Marseille Saint-Charles",
       "image": "msc.jpg",
       "imagepage": "https://commons.wikimedia.org/w/index.php?curid=149618795",
       "imageauthor": "Falk2",
@@ -44,6 +45,7 @@
         {"type": "TER", "lines": ["TER 1",""]},
         {"type": "TGV inOui", "lines": ["TGV 1"]}
       ],
+      "lien": "station.html?station=Toulon",
       "image": "toulon.jpg",
       "imagepage": "https://commons.wikimedia.org/w/index.php?curid=61014862",
       "imageauthor": "Chabe01",
@@ -111,6 +113,7 @@
       "lignes": [
         {"type": "TER", "lines": ["TER 1", "TER 6"]}
       ],
+      "lien": "station.html?station=Marseille-Blancarde",
       "image": "m-b.jpg",
       "imagepage": "https://commons.wikimedia.org/w/index.php?curid=151883013",
       "imageauthor": "Remontees",
@@ -136,6 +139,74 @@
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Marseille%20Blancarde"},
         {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/marseille-blancarde"},
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Marseille%20Blancarde"}
+      ],
+      "repere": ""
+    },
+    "Monaco-Monte-Carlo": {
+      "nom": "Monaco - Monte-Carlo",
+      "lignes": [
+        {"type": "TER", "lines": ["TER 1", "TER 6"]}
+      ],
+      "lien": "station.html?station=Monaco-Monte-Carlo",
+      "image": "monaco.jpg",
+      "imagepage": "https://commons.wikimedia.org/w/index.php?curid=43327296",
+      "imageauthor": "Smiley.toerist",
+      "imagelicense": " — Travail personnel, CC BY-SA 4.0",
+      "statistiques": [
+        {
+          "latitude": 43.7383333,
+          "longitude": 7.419722222222222,
+          "ouverture": "07/12/1999",
+          "voies": "3",
+          "quais": "2",
+          "zone_tarifaire": "1",
+          "accessible": "N/A",
+          "communes": ["Monaco"],
+          "frequentation": "8 153 686 voyageurs/an",
+          "inaugural": ""
+        }
+      ],
+      "sorties": [
+        {"numero": "1", "description": "Sortie principale"}
+      ],
+      "enrail_links": [
+        {"style": "enrail", "link": ""},
+        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/monaco-monte-carlo"},
+        {"style": "enrail", "link": ""}
+      ],
+      "repere": ""
+    },
+    "Avignon-Centre": {
+      "nom": "Avignon Centre",
+      "lignes": [
+        {"type": "TER", "lines": ["TER 8", "TER 9"]}
+      ],
+      "lien": "station.html?station=Avignon-Centre",
+      "image": "avignon-centre.jpg",
+      "imagepage": "https://commons.wikimedia.org/w/index.php?curid=43327296",
+      "imageauthor": "Smiley.toerist",
+      "imagelicense": " — Travail personnel, CC BY-SA 4.0",
+      "statistiques": [
+        {
+          "latitude": 43.7383333,
+          "longitude": 7.419722222222222,
+          "ouverture": "07/12/1999",
+          "voies": "3",
+          "quais": "2",
+          "zone_tarifaire": "1",
+          "accessible": "N/A",
+          "communes": ["Monaco"],
+          "frequentation": "8 153 686 voyageurs/an",
+          "inaugural": ""
+        }
+      ],
+      "sorties": [
+        {"numero": "1", "description": "Sortie principale"}
+      ],
+      "enrail_links": [
+        {"style": "enrail", "link": ""},
+        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/monaco-monte-carlo"},
+        {"style": "enrail", "link": ""}
       ],
       "repere": ""
     }
