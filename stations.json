@@ -179,24 +179,25 @@
     "Avignon-Centre": {
       "nom": "Avignon Centre",
       "lignes": [
-        {"type": "TER", "lines": ["TER 8", "TER 9"]}
+        {"type": "TER", "lines": ["TER 8", "TER 9"]},
+        {"type": "TGV inOui", "lines": ["TGV ?"]}
       ],
       "lien": "station.html?station=Avignon-Centre",
       "image": "avignon-centre.jpg",
-      "imagepage": "https://commons.wikimedia.org/w/index.php?curid=43327296",
-      "imageauthor": "Smiley.toerist",
-      "imagelicense": " — Travail personnel, CC BY-SA 4.0",
-      "statistiques": [
+      "imagepage": "https://commons.wikimedia.org/w/index.php?curid=16161051",
+      "imageauthor": "Psychs",
+      "imagelicense": " — https://www.flickr.com/photos/psychs/3571722905/, CC BY-SA 2.0",
+      "statistiques": [ 
         {
-          "latitude": 43.7383333,
-          "longitude": 7.419722222222222,
-          "ouverture": "07/12/1999",
-          "voies": "3",
-          "quais": "2",
-          "zone_tarifaire": "1",
+          "latitude": 43.9419444,
+          "longitude": 4.804722222222222,
+          "ouverture": "05/03/1849",
+          "voies": "7 (+ voies de service)",
+          "quais": "4",
+          "zone_tarifaire": "",
           "accessible": "N/A",
-          "communes": ["Monaco"],
-          "frequentation": "8 153 686 voyageurs/an",
+          "communes": ["Avignon"],
+          "frequentation": "2 982 128 voyageurs/an",
           "inaugural": ""
         }
       ],
@@ -204,9 +205,9 @@
         {"numero": "1", "description": "Sortie principale"}
       ],
       "enrail_links": [
-        {"style": "enrail", "link": ""},
-        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/monaco-monte-carlo"},
-        {"style": "enrail", "link": ""}
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Avignon%20Centre"},
+        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/avignon-centre"},
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Avignon%20Centre"}
       ],
       "repere": ""
     }
