@@ -109,7 +109,7 @@
       "repere": ""
     },
     "Marseille-Blancarde": {
-      "nom": "Marseille-Blancarde",
+      "nom": "Marseille Blancarde",
       "lignes": [
         {"type": "TER", "lines": ["TER 1", "TER 6"]}
       ],
@@ -208,6 +208,43 @@
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Avignon%20Centre"},
         {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/avignon-centre"},
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Avignon%20Centre"}
+      ],
+      "repere": ""
+    },
+    "avignon-tgv": {
+      "nom": "Avignon TGV",
+      "lignes": [
+        {"type": "TER", "lines": ["TER 9", "TER ?"]},
+        {"type": "TGV inOui", "lines": ["TGV ?"]},
+        {"type": "TGV OUIGO", "lines": ["TGV ?"]}
+      ],
+      "lien": "station.html?station=avignon-tgv",
+      "image": "avignon-tgv.jpg",
+      "image1": "avignon-tgv-aerien.jpg",
+      "imagepage": "https://commons.wikimedia.org/w/index.php?curid=4504030",
+      "imageauthor": "Jean-Marc Rosier",
+      "imagelicense": "from http://www.rosier.pro, CC BY-SA 3.0",
+      "statistiques": [ 
+        {
+          "latitude": 43.9216667,
+          "longitude": 4.786111111111111,
+          "ouverture": "10/06/2001",
+          "voies": "6",
+          "quais": "3",
+          "zone_tarifaire": "",
+          "accessible": "N/A",
+          "communes": ["Avignon"],
+          "frequentation": "4 160 030 voyageurs/an",
+          "inaugural": ""
+        }
+      ],
+      "sorties": [
+        {"numero": "1", "description": "Sortie principale"}
+      ],
+      "enrail_links": [
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Avignon%20TGV"},
+        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/avignon-tgv"},
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Avignon%20TGV"}
       ],
       "repere": ""
     }

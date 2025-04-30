@@ -242,7 +242,7 @@ fetch('stations.json')
         <img class="station-img" src="images/${station.image}" alt="${station.nom}">
         <!-- Crédit de l'image -->
         <div class="image-credit">
-          <p>Image de <a href="${station.imagepage}" target="_blank">${station.imageauthor}</a>${station.imagelicense}</p>
+          <p>Image de <a href="${station.imagepage}" target="_blank">${station.imageauthor}</a> ${station.imagelicense}</p>
         </div>
         <div>
           ${station.lignes.map(ligne => `

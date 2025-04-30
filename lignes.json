@@ -9,30 +9,22 @@
           {"stationname": "Hyères", "stationlink": "construction.html"}
         ],
         "stations": [
-        {
-          "nom": "Marseille Saint-Charles",
-          "latitude": 43.3038,
-          "longitude": 5.3811,
-          "id": "Marseille%20Saint-Charles"
-        },
-        {
-          "nom": "Marseille-Blancarde",
-          "latitude": 43.2961111,
-          "longitude": 5.406388888888889,
-          "id": "Marseille-Blancarde"
-        },
-        {
-          "nom": "Toulon",
-          "latitude": 43.128720348773214,
-          "longitude": 5.929503666761691,
-          "id": "Toulon"
-        },
-        {
-          "nom": "Hyères",
-          "latitude": 43.120,
-          "longitude": 6.130
-        }
-      ],
+          { "id": "Marseille Saint-Charles", "nom": "Marseille Saint-Charles" },
+          { "id": "Marseille-Blancarde", "nom": "Marseille Blancarde"},
+          { "id": "aubagne", "nom": "Aubagne" },
+          { "id": "cassis", "nom": "Cassis" },
+          { "id": "la-ciotat-ceyreste", "nom": "La Ciotat - Ceyreste" },
+          { "id": "st-cyr-les-lecques-la-cadière", "nom": "Saint-Cyr — Les Lecques — La Cadière" },
+          { "id": "bandol", "nom": "Bandol" },
+          { "id": "ollioules-sanary-sur-mer", "nom": "Ollioules — Sanary-sur-Mer" },
+          { "id": "la-seyne-six-fours", "nom": "La Seyne — Six Fours" },
+          { "id": "toulon", "nom": "Toulon" },
+          { "id": "toulon-sainte-musse", "nom": "Toulon Sainte-Musse" },
+          { "id": "la-garde", "nom": "La Garde" },
+          { "id": "la-pauline", "nom": "La Pauline" },
+          { "id": "la-crau", "nom": "La Crau" },
+          { "id": "hyeres", "nom": "Hyères" }
+  ],
         "arrivee": "Hyères",
         "distance": "N/A km",
         "duree": "N/A",
@@ -40,12 +32,21 @@
       },
       {
         "id": 2,
-        "nom": "Nice - Cannes",
-        "depart": "Nice Ville",
-        "arrivee": "Cannes",
+        "nom": "Ligne Marseille - Les Arcs",
+        "depart": "Marseille Saint-Charles",
+        "arrivee": "Les Arcs - Draguignan",
         "type": "TER",
-        "distance": "34 km",
-        "duree": "30 min"
+        "distance": "91 km",
+        "duree": "1h30",
+        "links": [
+          {"stationname": "Marseille Saint-Charles", "stationlink": "station.html?station=Marseille%20Saint-Charles"},
+          {"stationname": "Les Arcs - Draguignan", "stationlink": "construction.html"}
+        ],
+        "stations": [
+          { "id": "Marseille Saint-Charles", "nom": "Marseille Saint-Charles" },
+          { "id": "aubagne", "nom": "Aubagne" },
+          { "id": "toulon", "nom": "Toulon" }
+  ]
       },
       {
         "id": 3,
