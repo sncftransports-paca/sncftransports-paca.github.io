@@ -281,5 +281,40 @@
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Vitrolles%20A%C3%A9roport%20Marseille%20Provence"}
       ],
       "repere": ""
+    },
+    "miramas": {
+      "nom": "Miramas",
+      "lignes": [
+        {"type": "TER", "lines": ["TER 7A", "TER 10"]},
+        {"type": "TGV inOui", "lines": [""]}
+      ],
+      "lien": "station.html?station=miramas",
+      "image": "miramas.jpg",
+      "imagepage": "https://commons.wikimedia.org/w/index.php?curid=151972660",
+      "imageauthor": "Remontees",
+      "imagelicense": "— Travail personnel, CC BY-SA 4.0",
+      "statistiques": [ 
+        {
+          "latitude": 43.580506,
+          "longitude": 4.999538,
+          "ouverture": "08/01/1848",
+          "voies": "5 (+ voies de service)",
+          "quais": "3",
+          "zone_tarifaire": "",
+          "accessible": "N/A",
+          "communes": ["Miramas"],
+          "frequentation": "716 877 voyageurs/an",
+          "inaugural": ""
+        }
+      ],
+      "sorties": [
+        {"numero": "1", "description": "Sortie principale"}
+      ],
+      "enrail_links": [
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Miramas"},
+        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/miramas"},
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Miramas"}
+      ],
+      "repere": ""
     }
   }         
