@@ -85,13 +85,7 @@
         "duree": "30 min"
       },
       {
-        "id": 7,
-        "nom": "Aix-en-Provence - Marseille",
-        "depart": "Aix-en-Provence",
-        "arrivee": "Marseille Saint-Charles",
         "type": "TER",
-        "distance": "30 km",
-        "duree": "20 min"
       }
     ]
   }
