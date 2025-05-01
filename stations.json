@@ -75,7 +75,7 @@
       "ptinteret": "Port de Toulon",
       "repere": "Centre"
     },
-    "Pas-des-Lanciers": {
+    "pas-des-lanciers": {
       "nom": "Pas-des-Lanciers",
       "lignes": [
         {"type": "TER", "lines": ["TER 7A", "TER 8"]}
@@ -142,7 +142,7 @@
       ],
       "repere": ""
     },
-    "Monaco-Monte-Carlo": {
+    "monaco-monte-carlo": {
       "nom": "Monaco - Monte-Carlo",
       "lignes": [
         {"type": "TER", "lines": ["TER 1", "TER 6"]}
@@ -176,7 +176,7 @@
       ],
       "repere": ""
     },
-    "Avignon-Centre": {
+    "avignon-centre": {
       "nom": "Avignon Centre",
       "lignes": [
         {"type": "TER", "lines": ["TER 8", "TER 9"]},
@@ -248,7 +248,7 @@
       ],
       "repere": ""
     },
-    "vitrolles-aéroport-marseille-provence": {
+    "vitrolles-aeroport-marseille-provence": {
       "nom": "Vitrolles-Aéroport-Marseille-Provence",
       "lignes": [
         {"type": "TER", "lines": ["TER 7A", "TER 10"]}
