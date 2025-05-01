@@ -1,4 +1,4 @@
-name: Discord Notification with Role and User Mentions
+name: Discord Notification per Commit
 
 on:
   push:
@@ -12,68 +12,72 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Notify Discord with embed and mentions
+      - name: Notify Discord for each commit
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
-          # Récupérer infos du commit
-          AUTHOR_NAME=$(git log -1 --pretty=format:'%an')
-          COMMIT_MSG_TITLE=$(git log -1 --pretty=format:'%s')
-          COMMIT_MSG_BODY=$(git log -1 --pretty=format:'%b')
-
-          # Mapping GitHub author → Discord user ID
-          if [ "$AUTHOR_NAME" = "Le J" ]; then
-            DISCORD_USER_ID="962313048926855188"  # ton ID Discord
-          else
-            DISCORD_USER_ID=""
-          fi
-
           # ID du rôle Discord à mentionner (ex: @Développeurs)
-          DISCORD_ROLE_ID="1366866195911020544"  # remplace par ton vrai ID de rôle
+          DISCORD_ROLE_ID="1366866195911020544"
 
-          # Mention utilisateur (inline)
-          if [ -n "$DISCORD_USER_ID" ]; then
-            AUTHOR_FIELD="**${AUTHOR_NAME}** (<@${DISCORD_USER_ID}>)"
-          else
-            AUTHOR_FIELD="**${AUTHOR_NAME}**"
-          fi
+          for row in $(jq -c '.commits[]' "$GITHUB_EVENT_PATH"); do
+            # Extraire les données du commit
+            COMMIT_SHA=$(echo "$row" | jq -r '.id')
+            COMMIT_URL=$(echo "$row" | jq -r '.url')
+            AUTHOR_NAME=$(echo "$row" | jq -r '.author.name')
+            COMMIT_MSG_TITLE=$(echo "$row" | jq -r '.message' | head -n1)
+            COMMIT_MSG_BODY=$(echo "$row" | jq -r '.message' | tail -n +2)
 
-          # Mention rôle (envoyé dans le champ `content`)
-          MENTION_ROLE="<@&${DISCORD_ROLE_ID}>"
+            # Associer noms Git aux IDs Discord
+            if [ "$AUTHOR_NAME" = "Le J" ]; then
+              DISCORD_USER_ID="962313048926855188"
+            else
+              DISCORD_USER_ID=""
+            fi
 
-          curl -H "Content-Type: application/json" \
-          -X POST \
-          -d '{
-            "content": "'"${MENTION_ROLE}"'",
-            "embeds": [{
-              "title": "🚀 Nouveau commit poussé",
-              "description": "Auteur : '"${AUTHOR_FIELD}"'\n**Dépôt :** '"${{ github.repository }}"'",
-              "url": "https://github.com/${{ github.repository }}/commit/${{ github.sha }}",
-              "color": 5814783,
-              "fields": [
-                {
-                  "name": "Message",
-                  "value": "'"${COMMIT_MSG_TITLE}"'"
-                },
-                {
-                  "name": "Description",
-                  "value": "'"${COMMIT_MSG_BODY:-_Aucune description_}"'"
-                },
-                {
-                  "name": "Branche",
-                  "value": "${{ github.ref_name }}",
-                  "inline": true
-                },
-                {
-                  "name": "Lien",
-                  "value": "[Voir le commit](https://github.com/${{ github.repository }}/commit/${{ github.sha }})",
-                  "inline": true
-                }
-              ],
-              "footer": {
-                "text": "GitHub Actions via Discord Webhook"
-              },
-              "timestamp": "'"$(date --iso-8601=seconds)"'"
-            }]
-          }' \
-          $DISCORD_WEBHOOK
+            # Auteur affiché avec mention
+            if [ -n "$DISCORD_USER_ID" ]; then
+              AUTHOR_FIELD="**${AUTHOR_NAME}** (<@${DISCORD_USER_ID}>)"
+            else
+              AUTHOR_FIELD="**${AUTHOR_NAME}**"
+            fi
+
+            # Mention du rôle
+            MENTION_ROLE="<@&${DISCORD_ROLE_ID}>"
+
+            curl -H "Content-Type: application/json" \
+              -X POST \
+              -d '{
+                "content": "'"${MENTION_ROLE}"'",
+                "embeds": [{
+                  "title": "🚀 Nouveau commit poussé",
+                  "description": "Auteur : '"${AUTHOR_FIELD}"'\n**Dépôt :** '"${{ github.repository }}"'",
+                  "url": "'"${COMMIT_URL}"'",
+                  "color": 5814783,
+                  "fields": [
+                    {
+                      "name": "Message",
+                      "value": "'"${COMMIT_MSG_TITLE}"'"
+                    },
+                    {
+                      "name": "Description",
+                      "value": "'"${COMMIT_MSG_BODY:-_Aucune description_}"'"
+                    },
+                    {
+                      "name": "Branche",
+                      "value": "${{ github.ref_name }}",
+                      "inline": true
+                    },
+                    {
+                      "name": "Lien",
+                      "value": "[Voir le commit]('"${COMMIT_URL}"')",
+                      "inline": true
+                    }
+                  ],
+                  "footer": {
+                    "text": "GitHub Actions via Discord Webhook"
+                  },
+                  "timestamp": "'"$(date --iso-8601=seconds)"'"
+                }]
+              }' \
+              $DISCORD_WEBHOOK
+          done
