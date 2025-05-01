@@ -19,7 +19,7 @@ jobs:
           # ID du rôle Discord à mentionner (ex: @Développeurs)
           DISCORD_ROLE_ID="1366866195911020544"
 
-          for row in $(jq -c '.commits[]' "$GITHUB_EVENT_PATH"); do
+          jq -c '.commits[]' "$GITHUB_EVENT_PATH" | while read -r row; do
             # Extraire les données du commit
             COMMIT_SHA=$(echo "$row" | jq -r '.id')
             COMMIT_URL=$(echo "$row" | jq -r '.url')
