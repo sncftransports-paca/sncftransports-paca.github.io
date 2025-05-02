@@ -80,6 +80,7 @@
       "lignes": [
         {"type": "TER", "lines": ["TER 7A", "TER 8"]}
       ],
+      "lien": "station.html?station=pas-des-lanciers",
       "image": "pdl.jpg",
       "imagepage": "https://commons.wikimedia.org/w/index.php?curid=9766046",
       "imageauthor": "Fr.Latreille",
@@ -253,7 +254,7 @@
       "lignes": [
         {"type": "TER", "lines": ["TER 7A", "TER 10"]}
       ],
-      "lien": "station.html?station=vitrolles-aéroport-marseille-provence",
+      "lien": "station.html?station=vitrolles-aeroport-marseille-provence",
       "image": "vamp.jpg",
       "imagepage": "https://commons.wikimedia.org/w/index.php?curid=113500522",
       "imageauthor": "Homère plus",
@@ -314,6 +315,74 @@
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Miramas"},
         {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/miramas"},
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Miramas"}
+      ],
+      "repere": ""
+    },
+    "rognac": {
+      "nom": "Rognac",
+      "lignes": [
+        {"type": "TER", "lines": ["TER 7A", "TER 10"]}
+      ],
+      "lien": "station.html?station=rognac",
+      "image": "rognac.jpg",
+      "imagepage": "https://commons.wikimedia.org/w/index.php?curid=5506369",
+      "imageauthor": "Fr.Latreille",
+      "imagelicense": "— Travail personnel, CC BY-SA 3.0",
+      "statistiques": [ 
+        {
+          "latitude": 43.4866667,
+          "longitude": 5.230555555555556,
+          "ouverture": "1847-1849",
+          "voies": "3 (+ voies de service)",
+          "quais": "2",
+          "zone_tarifaire": "",
+          "accessible": "N/A",
+          "communes": ["Rognac"],
+          "frequentation": "227 793 voyageurs/an",
+          "inaugural": ""
+        }
+      ],
+      "sorties": [
+        {"numero": "1", "description": "Sortie principale"}
+      ],
+      "enrail_links": [
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Rognac"},
+        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/rognac"},
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Rognac"}
+      ],
+      "repere": ""
+    },
+    "st-chamas": {
+      "nom": "Saint-Chamas",
+      "lignes": [
+        {"type": "TER", "lines": ["TER 7A", "TER 10"]}
+      ],
+      "lien": "station.html?station=st-chamas",
+      "image": "saint-chamas.jpg",
+      "imagepage": "https://commons.wikimedia.org/w/index.php?curid=87167953",
+      "imageauthor": "Abubiju",
+      "imagelicense": "— Travail personnel, CC0",
+      "statistiques": [ 
+        {
+          "latitude": 43.55106821580472,
+          "longitude": 5.040124662426786,
+          "ouverture": "18/10/1847",
+          "voies": "2",
+          "quais": "2",
+          "zone_tarifaire": "",
+          "accessible": "N/A",
+          "communes": ["Saint-Chamas"],
+          "frequentation": "86 118 voyageurs/an",
+          "inaugural": ""
+        }
+      ],
+      "sorties": [
+        {"numero": "1", "description": "Sortie principale"}
+      ],
+      "enrail_links": [
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Saint-Chamas"},
+        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/saint-chamas"},
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Saint-Chamas"}
       ],
       "repere": ""
     }

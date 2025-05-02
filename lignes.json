@@ -85,7 +85,22 @@
         "duree": "30 min"
       },
       {
+        "id": "7A",
+        "nom": "Ligne Marseille - Miramas (via Rognac)",
+        "depart": "Marseille Saint-Charles",
+        "arrivee": "Miramas",
         "type": "TER",
+        "distance": "N/A km",
+        "duree": "N/A min",
+        "stations": [
+          { "id": "Marseille Saint-Charles", "nom": "Marseille Saint-Charles" },
+          { "id": "l-estaque", "nom": "L'Estaque"},
+          { "id": "pas-des-lanciers", "nom": "Pas-des-Lanciers" },
+          { "id": "vitrolles-aeroport-marseille-provence", "nom": "Vitrolles Aéroport Marseille Provence" },
+          { "id": "rognac", "nom": "Rognac" },
+          { "id": "st-chamas", "nom": "Saint-Chamas" },
+          { "id": "miramas", "nom": "Miramas" }
+        ]
       }
     ]
   }
