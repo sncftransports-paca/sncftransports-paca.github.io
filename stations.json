@@ -385,5 +385,74 @@
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Saint-Chamas"}
       ],
       "repere": ""
+    },
+    "l-estaque": {
+      "nom": "L'Estaque",
+      "lignes": [
+        {"type": "TER", "lines": ["TER 7A", "TER 7B"]}
+      ],
+      "lien": "station.html?station=l-estaque",
+      "image": "l-estaque.jpg",
+      "imagepage": "https://commons.wikimedia.org/w/index.php?curid=54196239",
+      "imageauthor": "Irønie",
+      "imagelicense": "— Travail personnel, CC BY-SA 4.0",
+      "statistiques": [ 
+        {
+          "latitude": 43.3633333,
+          "longitude": 5.3213888888888885,
+          "ouverture": "Inconnue",
+          "voies": "4 (+ voies de service)",
+          "quais": "3",
+          "zone_tarifaire": "",
+          "accessible": "N/A",
+          "communes": ["Marseille"],
+          "frequentation": "134 120 voyageurs/an",
+          "inaugural": ""
+        }
+      ],
+      "sorties": [
+        {"numero": "1", "description": "Sortie principale"}
+      ],
+      "enrail_links": [
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=L'Estaque"},
+        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/estaque"},
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=L'Estaque"}
+      ],
+      "repere": ""
+    },
+    "nice-ville": {
+      "nom": "Nice-Ville",
+      "lignes": [
+        {"type": "TER", "lines": ["TER 6"]},
+        {"type": "TGV inOui", "lines": ["inOui ?"]}
+      ],
+      "lien": "station.html?station=nice-ville",
+      "image": "nice-ville.jpg",
+      "imagepage": "https://commons.wikimedia.org/w/index.php?curid=43798917",
+      "imageauthor": "DV",
+      "imagelicense": "— Travail personnel, CC BY-SA 4.0",
+      "statistiques": [ 
+        {
+          "latitude": 43.705005,
+          "longitude": 7.261929,
+          "ouverture": "18/10/1864",
+          "voies": "7 (+ voies de service)",
+          "quais": "4",
+          "zone_tarifaire": "",
+          "accessible": "N/A",
+          "communes": ["Nice"],
+          "frequentation": "11 229 438 voyageurs/an",
+          "inaugural": ""
+        }
+      ],
+      "sorties": [
+        {"numero": "1", "description": "Sortie principale"}
+      ],
+      "enrail_links": [
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Nice"},
+        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/nice"},
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Nice"}
+      ],
+      "repere": ""
     }
   }         
