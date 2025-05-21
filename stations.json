@@ -424,7 +424,7 @@
       "nom": "Nice-Ville",
       "lignes": [
         {"type": "TER", "lines": ["TER 6"]},
-        {"type": "TGV inOui", "lines": ["inOui ?"]}
+        {"type": "TGV inOui", "lines": ["inOui ??"]}
       ],
       "lien": "station.html?station=nice-ville",
       "image": "nice-ville.jpg",
