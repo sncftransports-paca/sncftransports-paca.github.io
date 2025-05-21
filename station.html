@@ -41,6 +41,11 @@
       width: 20px;
       margin-right: 8px;
     }
+    .badge:hover {
+      background-color: #388e3c;
+      text-decoration: none;
+      transform: scale(1.05);
+    }
     a.button {
       display: inline-block;
       background: #00796b;
@@ -245,12 +250,16 @@ fetch('stations.json')
           <p>Image de <a href="${station.imagepage}" target="_blank">${station.imageauthor}</a> ${station.imagelicense}</p>
         </div>
         <div>
-          ${station.lignes.map(ligne => `
-            <span class="badge ${ligne.type}">
-              ${getTypeIcon(ligne.type)} ${ligne.type.toUpperCase()}
-            </span>
-          `).join(' ')}
-        </div>
+  ${station.lignes.map(ligne => `
+    <div>
+      ${ligne.lines.map(numero => `
+        <a href="ligne.html?ligne=${encodeURIComponent(numero)}" class="badge">
+          <img src="icons/lignes/${numero.replace(/ /g, "_")}.svg" alt="${numero}">
+        </a>
+      `).join('')}
+    </div>
+  `).join('')}
+</div>
 
         <p><strong>Ouverture :</strong> ${station.statistiques[0].ouverture}</p>
         <p><strong>Voies :</strong> ${station.statistiques[0].voies} | <strong>Quais :</strong> ${station.statistiques[0].quais}</p>
