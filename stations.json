@@ -454,5 +454,73 @@
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Nice"}
       ],
       "repere": ""
+    },
+    "tarascon": {
+      "nom": "Tarascon",
+      "lignes": [
+        {"type": "TER", "lines": ["TER 11"]}
+      ],
+      "lien": "station.html?station=tarascon",
+      "image": "tarascon.jpg",
+      "imagepage": "https://commons.wikimedia.org/wiki/File:Quai_de_la_gare_de_Tarascon_en_direction_de_N%C3%AEmes_par_Cramos.JPG",
+      "imageauthor": "Cramos",
+      "imagelicense": "— Photographie personnelle, CC BY-SA 3.0",
+      "statistiques": [ 
+        {
+          "latitude": 43.8011111,
+          "longitude": 4.657222222222223,
+          "ouverture": "18/10/1847",
+          "voies": "4 (+ voies de service)",
+          "quais": "4",
+          "zone_tarifaire": "",
+          "accessible": "N/A",
+          "communes": ["Tarascon"],
+          "frequentation": "201 197 voyageurs/an (2023)",
+          "inaugural": ""
+        }
+      ],
+      "sorties": [
+        {"numero": "1", "description": "Sortie principale"}
+      ],
+      "enrail_links": [
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Tarascon"},
+        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/tarascon"},
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Tarascon"}
+      ],
+      "repere": ""
+    },
+    "aix-en-pce": {
+      "nom": "Aix-en-Provence",
+      "lignes": [
+        {"type": "TER", "lines": ["TER 10"]}
+      ],
+      "lien": "station.html?station=aix-en-pce",
+      "image": "aix-ville.jpg",
+      "imagepage": "https://fr.wikipedia.org/wiki/Gare_d%27Aix-en-Provence",
+      "imageauthor": "Homère plus",
+      "imagelicense": "— Photographie personnelle, CC BY-SA 4.0",
+      "statistiques": [ 
+        {
+          "latitude": 43.5230556,
+          "longitude": 5.445,
+          "ouverture": "1877",
+          "voies": "5 (+ 2 voies de service)",
+          "quais": "3",
+          "zone_tarifaire": "",
+          "accessible": "N/A",
+          "communes": ["Aix-en-Provence"],
+          "frequentation": "776 483 voyageurs/an (2023)",
+          "inaugural": ""
+        }
+      ],
+      "sorties": [
+        {"numero": "1", "description": "Sortie principale"}
+      ],
+      "enrail_links": [
+        {"style": "enrail", "link": "https://www.enrail.org/sncf/?mode=Departures&station=Aix-en-Provence"},
+        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/aix-provence"},
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Aix-en-Provence"}
+      ],
+      "repere": ""
     }
   }         
