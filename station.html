@@ -274,12 +274,16 @@ fetch('stations.json')
         <div>
   ${station.lignes.map(ligne => `
     <div>
-      <span class="badge-type">${getTypeIcon(ligne.type)}</span>
-      ${ligne.lines.map(numero => `
+      ${ligne.type === "TER"
+    ? `<span class="badge-type">${getTypeIcon(ligne.type)}</span>`
+    : `<span class="badge-type"><a href="construction.html">${getTypeIcon(ligne.type)}</a></span>`
+    }
+
+      ${ligne.type === "TER"? ligne.lines.map(numero => `
         <a href="ligne.html?ligne=${encodeURIComponent(numero)}" class="badge">
           <img src="icons/lignes/${numero.replace(/ /g, "_")}.svg" alt="${numero}">
         </a>
-      `).join('')}
+      `).join(''): ''}
     </div>
   `).join('')}
 </div>
