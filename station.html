@@ -30,9 +30,9 @@
       display: inline-flex;
       align-items: center;
       color: white;
-      padding: 8px 15px;
+      padding: 0px 0px;
       border-radius: 50px;
-      margin: 5px;
+      margin: 0px;
       font-size: 14px;
     }
     .badge img {
@@ -44,6 +44,23 @@
       text-decoration: none;
       transform: scale(1.05);
     }
+
+    .badge-type {
+      display: inline-flex;
+      align-items: center;
+      color: white;
+      padding: 0px 0px;
+      border-radius: 50px;
+      margin: 0px;
+      font-size: 14px;
+    }
+
+    .badge-type img {
+      height: 40px;
+      width: 40px;
+      margin-right: 0px;
+    }
+
     a.button {
       display: inline-block;
       background: #00796b;
@@ -244,7 +261,8 @@ fetch('stations.json')
   .then(data => {
     const station = data[stationKey];
     const container = document.getElementById('station');
-
+    var lignec = station.lignes
+    var typec = lignec.lines
     if (station) {
       container.innerHTML = `
         <h1>${station.nom}</h1>
@@ -256,6 +274,7 @@ fetch('stations.json')
         <div>
   ${station.lignes.map(ligne => `
     <div>
+      <span class="badge-type">${getTypeIcon(ligne.type)}</span>
       ${ligne.lines.map(numero => `
         <a href="ligne.html?ligne=${encodeURIComponent(numero)}" class="badge">
           <img src="icons/lignes/${numero.replace(/ /g, "_")}.svg" alt="${numero}">
