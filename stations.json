@@ -146,7 +146,7 @@
     "monaco-monte-carlo": {
       "nom": "Monaco - Monte-Carlo",
       "lignes": [
-        {"type": "TER", "lines": ["TER 1", "TER 6"]}
+        {"type": "TER", "lines": ["TER 4"]}
       ],
       "lien": "station.html?station=Monaco-Monte-Carlo",
       "image": "Monaco.jpg",
@@ -215,7 +215,7 @@
     "avignon-tgv": {
       "nom": "Avignon TGV",
       "lignes": [
-        {"type": "TER", "lines": ["TER 9", "TER ?"]},
+        {"type": "TER", "lines": ["TER 9", "TER 16"]},
         {"type": "TGV inOui", "lines": ["TGV ?"]},
         {"type": "TGV OUIGO", "lines": ["TGV ?"]}
       ],
@@ -252,7 +252,7 @@
     "vitrolles-aeroport-marseille-provence": {
       "nom": "Vitrolles-Aéroport-Marseille-Provence",
       "lignes": [
-        {"type": "TER", "lines": ["TER 7A", "TER 10"]}
+        {"type": "TER", "lines": ["TER 7A", "TER 8", "TER 10"]}
       ],
       "lien": "station.html?station=vitrolles-aeroport-marseille-provence",
       "image": "vamp.jpg",
@@ -286,7 +286,7 @@
     "miramas": {
       "nom": "Miramas",
       "lignes": [
-        {"type": "TER", "lines": ["TER 7A", "TER 10"]},
+        {"type": "TER", "lines": ["TER 7A", "TER 8", "TER 10"]},
         {"type": "TGV inOui", "lines": [""]}
       ],
       "lien": "station.html?station=miramas",
@@ -492,7 +492,7 @@
     "aix-en-pce": {
       "nom": "Aix-en-Provence",
       "lignes": [
-        {"type": "TER", "lines": ["TER 10"]}
+        {"type": "TER", "lines": ["TER 12", "TER 13"]}
       ],
       "lien": "station.html?station=aix-en-pce",
       "image": "aix-ville.jpg",
