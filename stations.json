@@ -592,5 +592,39 @@
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Saint-Martin-de-Crau"}
       ],
       "repere": ""
+    },
+    "fos-sur-mer": {
+      "nom": "Fos-sur-Mer",
+      "lignes": [
+        {"type": "TER", "lines": ["TER 7B"]}
+      ],
+      "lien": "station.html?station=fos-sur-mer",
+      "image": "",
+      "imagelink": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Fos_sur_Mer_by_Mikani.JPG/1024px-Fos_sur_Mer_by_Mikani.JPG",
+      "imagepage": "https://commons.wikimedia.org/w/index.php?curid=6823102",
+      "imageauthor": "Mikani",
+      "imagelicense": "— Travail personnel, CC BY-SA 3.0",
+      "statistiques": [ 
+        {
+          "latitude": 43.4280556,
+          "longitude": 4.974722222222223,
+          "ouverture": "1882",
+          "voies": "2",
+          "quais": "2",
+          "accessible": "",
+          "communes": ["Fos-sur-Mer"],
+          "frequentation": "9 110 voyageurs/an (2023)",
+          "inaugural": ""
+        }
+      ],
+      "sorties": [
+        {"numero": "1", "description": "Sortie principale"}
+      ],
+      "enrail_links": [
+        {"style": "enrail", "link": "https://www.enrail.org/sncf/?mode=Departures&station=Fos-sur-Mer"},
+        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/fos-mer"},
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Fos-sur-Mer"}
+      ],
+      "repere": ""
     }
   }         
