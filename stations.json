@@ -522,5 +522,40 @@
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Aix-en-Provence"}
       ],
       "repere": ""
+    },
+    "arles": {
+      "nom": "Arles",
+      "lignes": [
+        {"type": "TER", "lines": ["TER 8", "TER 11"]}
+      ],
+      "lien": "station.html?station=arles",
+      "image": "",
+      "imagelink": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Gare_d%27Arles_%2813%29.JPG/1280px-Gare_d%27Arles_%2813%29.JPG",
+      "imagepage": "https://commons.wikimedia.org/wiki/File:Gare_d%27Arles_(13).JPG",
+      "imageauthor": "Florian Pépellin",
+      "imagelicense": "— Travail personnel, Domaine public",
+      "statistiques": [ 
+        {
+          "latitude": 43.6847222,
+          "longitude": 4.631944444444445,
+          "ouverture": "1848",
+          "voies": "4",
+          "quais": "3",
+          "zone_tarifaire": "",
+          "accessible": "N/A",
+          "communes": ["Arles"],
+          "frequentation": "781 295 voyageurs/an (2022)",
+          "inaugural": ""
+        }
+      ],
+      "sorties": [
+        {"numero": "1", "description": "Sortie principale"}
+      ],
+      "enrail_links": [
+        {"style": "enrail", "link": "https://www.enrail.org/sncf/?mode=Departures&station=Arles"},
+        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/arles"},
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Arles"}
+      ],
+      "repere": ""
     }
   }         
