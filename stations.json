@@ -557,5 +557,40 @@
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Arles"}
       ],
       "repere": ""
+    },
+    "st-martin-de-crau": {
+      "nom": "Saint-Martin-de-Crau",
+      "lignes": [
+        {"type": "TER", "lines": ["TER 8", "TER 10"]}
+      ],
+      "lien": "station.html?station=st-martin-de-crau",
+      "image": "",
+      "imagelink": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Gare_de_Saint-Martin-de-Crau_2.jpg/1024px-Gare_de_Saint-Martin-de-Crau_2.jpg",
+      "imagepage": "https://commons.wikimedia.org/w/index.php?curid=40240294",
+      "imageauthor": "Odejea",
+      "imagelicense": "— Travail personnel, CC BY-SA 4.0",
+      "statistiques": [ 
+        {
+          "latitude": 43.6222222,
+          "longitude": 4.800277777777778,
+          "ouverture": "18/10/1847",
+          "voies": "2 (+ voies de service)",
+          "quais": "2",
+          "zone_tarifaire": "",
+          "accessible": "N/A",
+          "communes": ["Saint-Martin-de-Crau"],
+          "frequentation": "85 119 voyageurs/an (2021)",
+          "inaugural": ""
+        }
+      ],
+      "sorties": [
+        {"numero": "1", "description": "Sortie principale"}
+      ],
+      "enrail_links": [
+        {"style": "enrail", "link": "https://www.enrail.org/sncf/?mode=Departures&station=Saint-Martin-de-Crau"},
+        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/saint-martin-crau"},
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Saint-Martin-de-Crau"}
+      ],
+      "repere": ""
     }
   }         
