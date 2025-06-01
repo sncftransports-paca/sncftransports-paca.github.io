@@ -266,7 +266,7 @@ fetch('stations.json')
     if (station) {
       container.innerHTML = `
         <h1>${station.nom}</h1>
-        <img class="station-img" src="images/${station.image}" alt="${station.nom}">
+        <img class="station-img" src="${station.image && station.image.trim() !== '' ? 'images/' + station.image : station.imagelink}" alt="${station.nom}">
         <!-- Crédit de l'image -->
         <div class="image-credit">
           <p>Image de <a href="${station.imagepage}" target="_blank">${station.imageauthor}</a> ${station.imagelicense}</p>

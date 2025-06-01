@@ -118,7 +118,7 @@ fetch('stations.json')
       card.href = `station.html?station=${encodeURIComponent(key)}`;
       card.className = 'station-card';
       card.innerHTML = `
-        <img class="station-image" src="images/${station.image}" alt="${station.nom}">
+        <img class="station-image" src="${station.image && station.image.trim() !== '' ? 'images/' + station.image : station.imagelink}" alt="${station.nom}">
         <div class="station-content">
           <h2>${station.nom}</h2>
           <div>
