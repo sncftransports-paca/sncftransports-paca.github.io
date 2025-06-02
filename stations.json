@@ -622,5 +622,38 @@
         {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/croix-sainte"},
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Croix Sainte"}
       ]
+    },
+    "arenc-euromediteranee": {
+      "nom": "Arenc-Euroméditerranée",
+      "lignes": [
+        {"type": "TER", "lines": ["TER 7B"]}
+      ],
+      "lien": "station.html?station=arenc-euromediteranee",
+      "image": "",
+      "imagelink": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Arenc-MIrabeau.JPG",
+      "imagepage": "https://commons.wikimedia.org/w/index.php?curid=38324746",
+      "imageauthor": "Fr.Latreille",
+      "imagelicense": "— Travail personnel, CC BY-SA 4.0",
+      "statistiques": [ 
+        {
+          "latitude": 43.4280556,
+          "longitude": 4.974722222222223,
+          "ouverture": "3 février 2014",
+          "voies": "1",
+          "quais": "1",
+          "accessible": "",
+          "communes": ["Marseille (Arenc)"],
+          "frequentation": "72 833 voyageurs/an (2023)"
+        }
+      ],
+      "sorties": [
+        {"numero": "1", "description": "Sortie principale"}
+      ],
+      "enrail_links": [
+        {"style": "enrail", "link": "https://www.enrail.org/sncf/?mode=Departures&station=Arenc%20Euroméditerranée"},
+        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/arenc-euromediterranee-0"},
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Arenc%20Euroméditerranée"}
+      ],
+      "ptinteret": "Tour CMA CGM"
     }
   }         
