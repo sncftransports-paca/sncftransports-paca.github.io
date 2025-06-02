@@ -248,6 +248,23 @@ function getTypeIcon(type) {
   }
 }
 
+function getUrlIcon(type) {
+  switch(type) {
+    case 'TGV inOui':
+      return 'construction.html';
+    case 'TGV OUIGO':
+      return 'construction.html';
+    case 'Intercités':
+      return 'construction.html';
+    case 'métro':
+      return '<img src="icons/metro.svg" alt="Métro">';
+    case 'tram':
+      return '<img src="icons/tram.svg" alt="Tramway">';
+    default:
+      return '';
+  }
+}
+
 // Paramètre l'URL
 function getQueryParam(param) {
   const urlParams = new URLSearchParams(window.location.search);
