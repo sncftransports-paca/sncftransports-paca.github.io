@@ -387,17 +387,20 @@ fetch('stations.json')
 <!-- Affichage des sorties sous forme de cartes horizontales -->
 <div class="sorties-section fade-in full-width">
   <div class="sorties-cards" style="display: flex; flex-direction: column; gap: 15px;">
-    ${station.sorties.map(sortie => `
+    ${station.sorties.map(sortie => {
+      // Vérifier la présence d'informations supplémentaires
+      const hasExtraDetails = sortie.ptinteret || sortie.repere;
+      return `
       <div class="sortie-card" style="
             display: flex;
-            align-items: center;
+            align-items: flex-start; /* On laisse le contenu textuel en haut pour ne pas pénaliser les cas avec des infos additionnelles */
             gap: 15px;
             background: #e0f7fa;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             padding: 10px;
           ">
-        <!-- Cercle affichant uniquement le numéro -->
+        <!-- Cercle affichant uniquement le numéro, toujours centré -->
         <div class="sortie-number" style="
               width: 40px;
               height: 40px;
@@ -409,17 +412,27 @@ fetch('stations.json')
               color: #fff;
               font-weight: bold;
               font-size: 25px;
+              align-self: center; /* Le cercle reste centré par rapport à la hauteur totale de la carte */
             ">
           ${sortie.numero}
         </div>
         <!-- Détails de la sortie -->
         <div class="sortie-details" style="flex: 1;">
-          <p style="margin: 0px 0px 5px 0px; font-size: 20px; color: #333;">${sortie.description}</p>
-          ${sortie.ptinteret ? `<p style="font-size: 17px; color: #fff; border: 0px solid #8B4513; background-color: #5E3E2C; padding: 2px; display: inline-block; margin: 0px 0px 2px 0px; "><strong>${sortie.ptinteret}</strong></p>` : ''}<br>
-          ${sortie.repere ? `<p style="margin: 2px 0px 3px 0px; font-size: 17px; color: #444; border: 2px solid black; padding: 1px; display: inline-block;">${sortie.repere}</p>` : ''}
+          <!-- Conteneur de la description avec min-height et alignement dynamique -->
+          <div class="description-container" style="
+               display: flex;
+               align-items: ${hasExtraDetails ? 'flex-start' : 'center'};
+               min-height: ${hasExtraDetails ? '0px' : '40px'};  /* Pour que le conteneur ait au moins la hauteur du cercle */
+          ">
+            <p style="margin: 0; font-size: 20px; color: #333;">${sortie.description}</p>
+          </div>
+          <!-- Informations additionnelles affichées en-dessous, si disponibles -->
+          ${sortie.ptinteret ? `<p style="font-size: 17px; color: #fff; background-color: #5E3E2C; padding: 2px; display: inline-block; margin: 5px 0 2px 0;"><strong>${sortie.ptinteret}</strong></p><br>` : ''}
+          ${sortie.repere ? `<p style="margin: 2px 0 3px 0; font-size: 17px; color: #444; border: 2px solid black; padding: 1px; display: inline-block;">${sortie.repere}</p>` : ''}
         </div>
       </div>
-    `).join('')}
+      `;
+    }).join('')}
   </div>
 </div>
         </div>
