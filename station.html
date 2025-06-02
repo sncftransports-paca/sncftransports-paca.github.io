@@ -279,11 +279,11 @@ fetch('stations.json')
     : `<span class="badge-type"><a href="construction.html">${getTypeIcon(ligne.type)}</a></span>`
     }
 
-      ${ligne.type === "TER"? ligne.lines.map(numero => `
+      ${ligne.type === "TER" ? ligne.lines.map(numero => `
         <a href="ligne.html?ligne=${encodeURIComponent(numero)}" class="badge">
-          <img src="icons/lignes/${numero.replace(/ /g, "_")}.svg" alt="${numero}">
-        </a>
-      `).join(''): ''}
+          <img src="icons/lignes/${numero.replace(/ /g, "_")}.svg" alt="${numero}" onerror="this.onerror=null; this.src='icons/lignes/${numero.replace(/ /g, "_")}.jpeg';">
+  </a>
+`).join('') : ''}
     </div>
   `).join('')}
 </div>
