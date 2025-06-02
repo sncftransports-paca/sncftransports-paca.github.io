@@ -210,6 +210,44 @@
 	margin-bottom: 5px !important;
 	border: none;
 }
+.styled-table {
+    border-collapse: separate; /* Nécessaire pour que border-radius fonctionne */
+    border-spacing: 0;         /* Évite les espaces indésirables entre les cellules */
+    border-radius: 10px;       /* Ajustez la valeur selon le degré d'arrondi souhaité */
+    overflow: hidden;
+    font-size: 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+    color: white;
+    border-radius: 20px;
+    width: 70%;          /* Réduit la largeur à 70% du conteneur */
+    margin: 0 auto;      /* Centre le tableau horizontalement */
+    margin-top: 25px;
+  }
+  .styled-table thead tr {
+    background-color: #0069AE;
+  }
+  .styled-table th,
+  .styled-table td {
+    margin: 0px;
+    padding: 10px 5px;
+  }
+  .styled-table tbody tr:nth-child(even) {
+    background-color: #1CB1E6;
+  }
+  .styled-table tbody tr:nth-child(odd) {
+  background-color: #0069AE; /* Couleur pour les lignes impaires */
+}
+.styled-table tbody tr td:first-child {
+    text-align: right;
+  }
+  .styled-table td:first-child {
+    padding-right: 10px; /* Ajoute 15px d'espace à droite de la première colonne */
+  }
+
+  .styled-table td:last-child {
+    padding-left: 10px; /* Ajoute 15px d'espace à gauche de la deuxième colonne */
+  }
   </style>
 </head>
 <body>
@@ -305,23 +343,85 @@ fetch('stations.json')
   `).join('')}
 </div>
 
-        <p><strong>Ouverture :</strong> ${station.statistiques[0].ouverture}</p>
-        <p><strong>Voies :</strong> ${station.statistiques[0].voies} | <strong>Quais :</strong> ${station.statistiques[0].quais}</p>
-        <!--<p><strong>Zone :</strong> ${station.statistiques[0].zone_tarifaire}</p>-->
-        <p><strong>Accessibilité :</strong> ${station.statistiques[0].accessible}</p>
-        <p><strong>Fréquentation :</strong> ${station.statistiques[0].frequentation}</p>
-        <p><strong>Communes :</strong> ${station.statistiques[0].communes.join(', ')}</p>
-        <br>
-        <div class="sorties-section fade-in full-width">
-        <div class="sorties-grid">
-            ${station.sorties.map(sortie => `
-      <div class="sortie-card">
-        <h3>Sortie ${sortie.numero}</h3>
-        <p><strong>Description :</strong> ${sortie.description}</p>
-        ${sortie.ptinteret ? `<p><strong>Point d'intérêt :</strong> ${sortie.ptinteret}</p>` : ''}
-        ${sortie.repere ? `<p><strong>Repère :</strong> ${sortie.repere}</p>`: ''}
+<div class="table-container">
+  <table class="styled-table">
+    <colgroup>
+      <col style="width: 40%;">
+      <col style="width: 60%;">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td><strong>Ouverture</strong></td>
+        <td>${station.statistiques[0].ouverture}</td>
+      </tr>
+      <tr>
+        <td><strong>Voies</strong></td>
+        <td>${station.statistiques[0].voies}</td>
+      </tr>
+      <tr>
+        <td><strong>Quais</strong></td>
+        <td>${station.statistiques[0].quais}</td>
+      </tr>
+      <!--<tr>
+        <td><strong>Zone</strong></td>
+        <td>${station.statistiques[0].zone_tarifaire}</td>
+      </tr>-->
+      <tr>
+        <td><strong>Accessibilité</strong></td>
+        <td>${station.statistiques[0].accessible}</td>
+      </tr>
+      <tr>
+        <td><strong>Fréquentation</strong></td>
+        <td>${station.statistiques[0].frequentation}</td>
+      </tr>
+      <tr>
+        <td><strong>Communes</strong></td>
+        <td>${station.statistiques[0].communes.join(', ')}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<br>
+
+<!-- Affichage des sorties sous forme de cartes horizontales -->
+<div class="sorties-section fade-in full-width">
+  <div class="sorties-cards" style="display: flex; flex-direction: column; gap: 15px;">
+    ${station.sorties.map(sortie => `
+      <div class="sortie-card" style="
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #e0f7fa;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 10px;
+          ">
+        <!-- Cercle affichant uniquement le numéro -->
+        <div class="sortie-number" style="
+              width: 40px;
+              height: 40px;
+              background: #0088cc;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: #fff;
+              font-weight: bold;
+              font-size: 25px;
+            ">
+          ${sortie.numero}
+        </div>
+        <!-- Détails de la sortie -->
+        <div class="sortie-details" style="flex: 1;">
+          <p style="margin: 0px 0px 5px 0px; font-size: 20px; color: #333;">${sortie.description}</p>
+          ${sortie.ptinteret ? `<p style="font-size: 17px; color: #fff; border: 0px solid #8B4513; background-color: #5E3E2C; padding: 2px; display: inline-block; margin: 0px 0px 2px 0px; "><strong>${sortie.ptinteret}</strong></p>` : ''}<br>
+          ${sortie.repere ? `<p style="margin: 2px 0px 3px 0px; font-size: 17px; color: #444; border: 2px solid black; padding: 1px; display: inline-block;">${sortie.repere}</p>` : ''}
+        </div>
       </div>
     `).join('')}
+  </div>
+</div>
         </div>
         </div>
         
