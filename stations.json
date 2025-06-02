@@ -96,7 +96,7 @@
         }
       ],
       "sorties": [
-        {"numero": "1", "description": "Sortie principale"}
+        {"numero": "1", "description": "Avenue Henri Dunant"}
       ],
       "enrail_links": [
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Pas%20des%20Lanciers"},
@@ -128,7 +128,7 @@
         }
       ],
       "sorties": [
-        {"numero": "1", "description": "Sortie principale"}
+        {"numero": "1", "description": "Boulevard Louis Frangin"}
       ],
       "enrail_links": [
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Marseille%20Blancarde"},
@@ -193,7 +193,7 @@
         }
       ],
       "sorties": [
-        {"numero": "1", "description": "Sortie principale"}
+        {"numero": "1", "description": "Boulevard Saint-Roch"}
       ],
       "enrail_links": [
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Avignon%20Centre"},
@@ -228,7 +228,8 @@
         }
       ],
       "sorties": [
-        {"numero": "1", "description": "Sortie principale"}
+        {"numero": "1", "description": "Place de l'Europe", "repere": "Parkings"},
+        {"numero": "2", "description": "Chemin des Anciens Vergers"}
       ],
       "enrail_links": [
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Avignon%20TGV"},
