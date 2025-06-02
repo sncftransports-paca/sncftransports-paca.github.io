@@ -23,8 +23,7 @@
           "zone_tarifaire": "1",
           "accessible": "Oui",
           "communes": ["Marseille"],
-          "frequentation": "17,1 millions",
-          "inaugural": ""
+          "frequentation": "17,1 millions"
         }
       ],
       "sorties": [
@@ -60,8 +59,7 @@
           "zone_tarifaire": "2",
           "accessible": "Oui",
           "communes": ["Toulon"],
-          "frequentation": "N/A",
-          "inaugural": ""
+          "frequentation": "N/A"
         }
       ],
       "sorties": [
@@ -72,8 +70,7 @@
         {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/toulon"},
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Toulon"}
       ],
-      "ptinteret": "Port de Toulon",
-      "repere": "Centre"
+      "ptinteret": "Port de Toulon"
     },
     "pas-des-lanciers": {
       "nom": "Pas-des-Lanciers",
@@ -95,8 +92,7 @@
           "zone_tarifaire": "1",
           "accessible": "Non",
           "communes": ["Saint-Victoret"],
-          "frequentation": "114 722 voyageurs/an",
-          "inaugural": ""
+          "frequentation": "114 722 voyageurs/an"
         }
       ],
       "sorties": [
@@ -106,8 +102,7 @@
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Pas%20des%20Lanciers"},
         {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/pas-lanciers"},
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Pas%20des%20Lanciers"}
-      ],
-      "repere": ""
+      ]
     },
     "Marseille-Blancarde": {
       "nom": "Marseille Blancarde",
@@ -129,8 +124,7 @@
           "zone_tarifaire": "1",
           "accessible": "N/A",
           "communes": ["Marseille"],
-          "frequentation": "691 530 voyageurs/an",
-          "inaugural": ""
+          "frequentation": "691 530 voyageurs/an"
         }
       ],
       "sorties": [
@@ -140,8 +134,7 @@
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Marseille%20Blancarde"},
         {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/marseille-blancarde"},
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Marseille%20Blancarde"}
-      ],
-      "repere": ""
+      ]
     },
     "monaco-monte-carlo": {
       "nom": "Monaco - Monte-Carlo",
@@ -163,8 +156,7 @@
           "zone_tarifaire": "1",
           "accessible": "N/A",
           "communes": ["Monaco"],
-          "frequentation": "8 153 686 voyageurs/an",
-          "inaugural": ""
+          "frequentation": "8 153 686 voyageurs/an"
         }
       ],
       "sorties": [
@@ -174,8 +166,7 @@
         {"style": "enrail", "link": ""},
         {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/monaco-monte-carlo"},
         {"style": "enrail", "link": ""}
-      ],
-      "repere": ""
+      ]
     },
     "avignon-centre": {
       "nom": "Avignon Centre",
@@ -198,8 +189,7 @@
           "zone_tarifaire": "",
           "accessible": "N/A",
           "communes": ["Avignon"],
-          "frequentation": "2 982 128 voyageurs/an",
-          "inaugural": ""
+          "frequentation": "2 982 128 voyageurs/an"
         }
       ],
       "sorties": [
@@ -209,8 +199,7 @@
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Avignon%20Centre"},
         {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/avignon-centre"},
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Avignon%20Centre"}
-      ],
-      "repere": ""
+      ]
     },
     "avignon-tgv": {
       "nom": "Avignon TGV",
@@ -235,8 +224,7 @@
           "zone_tarifaire": "",
           "accessible": "N/A",
           "communes": ["Avignon"],
-          "frequentation": "4 160 030 voyageurs/an",
-          "inaugural": ""
+          "frequentation": "4 160 030 voyageurs/an"
         }
       ],
       "sorties": [
@@ -246,8 +234,7 @@
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Avignon%20TGV"},
         {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/avignon-tgv"},
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Avignon%20TGV"}
-      ],
-      "repere": ""
+      ]
     },
     "vitrolles-aeroport-marseille-provence": {
       "nom": "Vitrolles-Aéroport-Marseille-Provence",
@@ -269,8 +256,7 @@
           "zone_tarifaire": "",
           "accessible": "N/A",
           "communes": ["Vitrolles", "Marignane"],
-          "frequentation": "589 410 voyageurs/an",
-          "inaugural": ""
+          "frequentation": "589 410 voyageurs/an"
         }
       ],
       "sorties": [
@@ -280,8 +266,7 @@
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Vitrolles%20A%C3%A9roport%20Marseille%20Provence"},
         {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/vitrolles-aeroport-marseille-provence"},
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Vitrolles%20A%C3%A9roport%20Marseille%20Provence"}
-      ],
-      "repere": ""
+      ]
     },
     "miramas": {
       "nom": "Miramas",
@@ -304,8 +289,7 @@
           "zone_tarifaire": "",
           "accessible": "N/A",
           "communes": ["Miramas"],
-          "frequentation": "716 877 voyageurs/an",
-          "inaugural": ""
+          "frequentation": "716 877 voyageurs/an"
         }
       ],
       "sorties": [
@@ -315,8 +299,7 @@
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Miramas"},
         {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/miramas"},
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Miramas"}
-      ],
-      "repere": ""
+      ]
     },
     "rognac": {
       "nom": "Rognac",
@@ -338,8 +321,7 @@
           "zone_tarifaire": "",
           "accessible": "N/A",
           "communes": ["Rognac"],
-          "frequentation": "227 793 voyageurs/an",
-          "inaugural": ""
+          "frequentation": "227 793 voyageurs/an"
         }
       ],
       "sorties": [
@@ -349,8 +331,7 @@
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Rognac"},
         {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/rognac"},
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Rognac"}
-      ],
-      "repere": ""
+      ]
     },
     "st-chamas": {
       "nom": "Saint-Chamas",
@@ -372,8 +353,7 @@
           "zone_tarifaire": "",
           "accessible": "N/A",
           "communes": ["Saint-Chamas"],
-          "frequentation": "86 118 voyageurs/an",
-          "inaugural": ""
+          "frequentation": "86 118 voyageurs/an"
         }
       ],
       "sorties": [
@@ -383,8 +363,7 @@
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Saint-Chamas"},
         {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/saint-chamas"},
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Saint-Chamas"}
-      ],
-      "repere": ""
+      ]
     },
     "l-estaque": {
       "nom": "L'Estaque",
@@ -406,8 +385,7 @@
           "zone_tarifaire": "",
           "accessible": "N/A",
           "communes": ["Marseille"],
-          "frequentation": "134 120 voyageurs/an",
-          "inaugural": ""
+          "frequentation": "134 120 voyageurs/an"
         }
       ],
       "sorties": [
@@ -417,8 +395,7 @@
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=L'Estaque"},
         {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/estaque"},
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=L'Estaque"}
-      ],
-      "repere": ""
+      ]
     },
     "nice-ville": {
       "nom": "Nice-Ville",
@@ -441,8 +418,7 @@
           "zone_tarifaire": "",
           "accessible": "N/A",
           "communes": ["Nice"],
-          "frequentation": "11 229 438 voyageurs/an",
-          "inaugural": ""
+          "frequentation": "11 229 438 voyageurs/an"
         }
       ],
       "sorties": [
@@ -452,8 +428,7 @@
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Nice"},
         {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/nice"},
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Nice"}
-      ],
-      "repere": ""
+      ]
     },
     "tarascon": {
       "nom": "Tarascon",
@@ -475,8 +450,7 @@
           "zone_tarifaire": "",
           "accessible": "N/A",
           "communes": ["Tarascon"],
-          "frequentation": "201 197 voyageurs/an (2023)",
-          "inaugural": ""
+          "frequentation": "201 197 voyageurs/an (2023)"
         }
       ],
       "sorties": [
@@ -486,8 +460,7 @@
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Tarascon"},
         {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/tarascon"},
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Tarascon"}
-      ],
-      "repere": ""
+      ]
     },
     "aix-en-pce": {
       "nom": "Aix-en-Provence",
@@ -509,8 +482,7 @@
           "zone_tarifaire": "",
           "accessible": "N/A",
           "communes": ["Aix-en-Provence"],
-          "frequentation": "776 483 voyageurs/an (2023)",
-          "inaugural": ""
+          "frequentation": "776 483 voyageurs/an (2023)"
         }
       ],
       "sorties": [
@@ -520,8 +492,7 @@
         {"style": "enrail", "link": "https://www.enrail.org/sncf/?mode=Departures&station=Aix-en-Provence"},
         {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/aix-provence"},
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Aix-en-Provence"}
-      ],
-      "repere": ""
+      ]
     },
     "arles": {
       "nom": "Arles",
@@ -544,8 +515,7 @@
           "zone_tarifaire": "",
           "accessible": "N/A",
           "communes": ["Arles"],
-          "frequentation": "781 295 voyageurs/an (2022)",
-          "inaugural": ""
+          "frequentation": "781 295 voyageurs/an (2022)"
         }
       ],
       "sorties": [
@@ -555,8 +525,7 @@
         {"style": "enrail", "link": "https://www.enrail.org/sncf/?mode=Departures&station=Arles"},
         {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/arles"},
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Arles"}
-      ],
-      "repere": ""
+      ]
     },
     "st-martin-de-crau": {
       "nom": "Saint-Martin-de-Crau",
@@ -578,8 +547,7 @@
           "quais": "2",
           "accessible": "N/A",
           "communes": ["Saint-Martin-de-Crau"],
-          "frequentation": "85 119 voyageurs/an (2021)",
-          "inaugural": ""
+          "frequentation": "85 119 voyageurs/an (2021)"
         }
       ],
       "sorties": [
@@ -589,8 +557,7 @@
         {"style": "enrail", "link": "https://www.enrail.org/sncf/?mode=Departures&station=Saint-Martin-de-Crau"},
         {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/saint-martin-crau"},
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Saint-Martin-de-Crau"}
-      ],
-      "repere": ""
+      ]
     },
     "fos-sur-mer": {
       "nom": "Fos-sur-Mer",
@@ -612,8 +579,7 @@
           "quais": "2",
           "accessible": "",
           "communes": ["Fos-sur-Mer"],
-          "frequentation": "9 110 voyageurs/an (2023)",
-          "inaugural": ""
+          "frequentation": "9 110 voyageurs/an (2023)"
         }
       ],
       "sorties": [
@@ -623,8 +589,7 @@
         {"style": "enrail", "link": "https://www.enrail.org/sncf/?mode=Departures&station=Fos-sur-Mer"},
         {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/fos-mer"},
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Fos-sur-Mer"}
-      ],
-      "repere": ""
+      ]
     },
     "croix-sainte": {
       "nom": "Croix-Sainte",
@@ -646,8 +611,7 @@
           "quais": "2",
           "accessible": "",
           "communes": ["Martigues"],
-          "frequentation": "4 870 voyageurs/an (2023)",
-          "inaugural": ""
+          "frequentation": "4 870 voyageurs/an (2023)"
         }
       ],
       "sorties": [
@@ -657,7 +621,6 @@
         {"style": "enrail", "link": "https://www.enrail.org/sncf/?mode=Departures&station=Croix Sainte"},
         {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/croix-sainte"},
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Croix Sainte"}
-      ],
-      "repere": ""
+      ]
     }
   }         
