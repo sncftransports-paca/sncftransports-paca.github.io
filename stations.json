@@ -625,5 +625,39 @@
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Fos-sur-Mer"}
       ],
       "repere": ""
+    },
+    "croix-sainte": {
+      "nom": "Croix-Sainte",
+      "lignes": [
+        {"type": "TER", "lines": ["TER 7B"]}
+      ],
+      "lien": "station.html?station=croix-sainte",
+      "image": "",
+      "imagelink": "https://upload.wikimedia.org/wikipedia/commons/8/87/Martigues_—_Vue_générale_depuis_la_chapelle_Notre-Dame-des-Marins.jpg",
+      "imagepage": "https://commons.wikimedia.org/w/index.php?curid=7871637",
+      "imageauthor": "Airair",
+      "imagelicense": "— Travail personnel, CC BY-SA 3.0",
+      "statistiques": [ 
+        {
+          "latitude": 43.4280556,
+          "longitude": 4.974722222222223,
+          "ouverture": "1875",
+          "voies": "2",
+          "quais": "2",
+          "accessible": "",
+          "communes": ["Martigues"],
+          "frequentation": "4 870 voyageurs/an (2023)",
+          "inaugural": ""
+        }
+      ],
+      "sorties": [
+        {"numero": "1", "description": "Sortie principale"}
+      ],
+      "enrail_links": [
+        {"style": "enrail", "link": "https://www.enrail.org/sncf/?mode=Departures&station=Croix Sainte"},
+        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/croix-sainte"},
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Croix Sainte"}
+      ],
+      "repere": ""
     }
   }         
