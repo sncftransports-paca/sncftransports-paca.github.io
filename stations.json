@@ -2,7 +2,7 @@
     "Marseille Saint-Charles": {
       "nom": "Marseille Saint-Charles",
       "lignes": [
-        {"type": "TER", "lines": ["TER 1", "TER 2"]},
+        {"type": "TER", "lines": ["TER 1", "TER 2", "TER 6", "TER 7A", "TER 7B", "TER 8", "TER 9", "TER 10", "TER 11", "TER 12", "TER 13"]},
         {"type": "TGV inOui", "lines": ["TGV 1", "TGV 2"]},
         {"type": "TGV OUIGO", "lines":["OUIGO 1", "OUIGO 2"]},
         {"type": "Intercités", "lines": ["IC1"]},
