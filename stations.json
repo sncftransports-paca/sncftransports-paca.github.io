@@ -656,5 +656,36 @@
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Arenc%20Euroméditerranée"}
       ],
       "ptinteret": "Tour CMA CGM"
+    },
+    "martigues": {
+      "nom": "Martigues",
+      "lignes": [
+        {"type": "TER", "lines": ["TER 7B"]}
+      ],
+      "lien": "station.html?station=martigues",
+      "imagelink": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Gare_de_Martigues.JPG/1024px-Gare_de_Martigues.JPG",
+      "imagepage": "https://commons.wikimedia.org/wiki/File:Gare_de_Martigues.JPG",
+      "imageauthor": "Florian Pépellin",
+      "imagelicense": "— Travail personnel, CC BY-SA 3.0",
+      "statistiques": [ 
+        {
+          "latitude": 43.392777,
+          "longitude": 5.025555,
+          "ouverture": "15/10/1915",
+          "voies": "2 (+ voies de service)",
+          "quais": "2",
+          "accessible": "N/A",
+          "communes": ["Martigues (Lavéra)"],
+          "frequentation": "35 992 voyageurs/an (2021)"
+        }
+      ],
+      "sorties": [
+        {"numero": "1", "description": "Sortie principale"}
+      ],
+      "enrail_links": [
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Martigues"},
+        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/martigues"},
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Martigues"}
+      ]
     }
   }         
