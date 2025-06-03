@@ -687,5 +687,36 @@
         {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/martigues"},
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Martigues"}
       ]
+    },
+    "cavaillon": {
+      "nom": "Cavaillon",
+      "lignes": [
+        {"type": "TER", "lines": ["TER 9"]}
+      ],
+      "lien": "station.html?station=cavaillon",
+      "imagelink": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Gare_de_Cavaillon.JPG/1024px-Gare_de_Cavaillon.JPG",
+      "imagepage": "https://commons.wikimedia.org/w/index.php?curid=27566609",
+      "imageauthor": "Marianne Casamance",
+      "imagelicense": "— Travail personnel, CC BY-SA 3.0",
+      "statistiques": [ 
+        {
+          "latitude": 43.8347222,
+          "longitude": 5.043611111111111,
+          "ouverture": "29/12/1868",
+          "voies": "5 (+ voies de service)",
+          "quais": "3",
+          "accessible": "N/A",
+          "communes": ["Cavaillon"],
+          "frequentation": "223 401 voyageurs/an (2023)"
+        }
+      ],
+      "sorties": [
+        {"numero": "1", "description": "Sortie principale"}
+      ],
+      "enrail_links": [
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Cavaillon"},
+        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/cavaillon"},
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Cavaillon"}
+      ]
     }
   }         
