@@ -718,5 +718,36 @@
         {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/cavaillon"},
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Cavaillon"}
       ]
+    },
+    "aubagne": {
+      "nom": "Aubagne",
+      "lignes": [
+        {"type": "TER", "lines": ["TER 1"]}
+      ],
+      "lien": "station.html?station=aubagne",
+      "imagelink": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Gare_d%27Aubagne_voies_vers_Marseille.jpg/1024px-Gare_d%27Aubagne_voies_vers_Marseille.jpg",
+      "imagepage": "https://commons.wikimedia.org/w/index.php?curid=49043018",
+      "imageauthor": "Ludo33",
+      "imagelicense": "— Travail personnel, CC BY-SA 4.0",
+      "statistiques": [ 
+        {
+          "latitude": 43.2961111,
+          "longitude": 5.566388888888889,
+          "ouverture": "20/10/1858",
+          "voies": "5 (dont une en impasse)",
+          "quais": "3 centraux",
+          "accessible": "N/A",
+          "communes": ["Aubagne"],
+          "frequentation": "1 057 406 voyageurs/an (2023)"
+        }
+      ],
+      "sorties": [
+        {"numero": "1", "description": "Sortie principale"}
+      ],
+      "enrail_links": [
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Aubagne"},
+        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/aubagne"},
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Aubagne"}
+      ]
     }
   }         
