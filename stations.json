@@ -749,5 +749,36 @@
         {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/aubagne"},
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Aubagne"}
       ]
+    },
+    "cannes": {
+      "nom": "Cannes",
+      "lignes": [
+        {"type": "TER", "lines": ["TER 3", "TER 4", "TER 6"]}
+      ],
+      "lien": "station.html?station=cannes",
+      "imagelink": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Gare_de_Cannes.jpg/1024px-Gare_de_Cannes.jpg",
+      "imagepage": "https://commons.wikimedia.org/w/index.php?curid=40475134",
+      "imageauthor": "Tiia Monto",
+      "imagelicense": "— CC BY-SA 3.0",
+      "statistiques": [ 
+        {
+          "latitude": 43.2961111,
+          "longitude": 5.566388888888889,
+          "ouverture": "10/04/1863",
+          "voies": "3",
+          "quais": "2",
+          "accessible": "N/A",
+          "communes": ["Cannes"],
+          "frequentation": "5 392 921 voyageurs/an (2023)"
+        }
+      ],
+      "sorties": [
+        {"numero": "1", "description": "Sortie principale"}
+      ],
+      "enrail_links": [
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Cannes"},
+        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/cannes"},
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Cannes"}
+      ]
     }
   }         
