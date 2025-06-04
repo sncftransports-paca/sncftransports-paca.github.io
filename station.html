@@ -332,6 +332,7 @@ fetch('stations.json')
     if (station) {
       container.innerHTML = `
         <h1 style="padding: 5px; margin: 10px 0px 7px 0px">${station.nom}</h1>
+        ${station.ptinteret ? `<p style="font-size: 25px; color: #fff; background-color: #5E3E2C; padding: 2px; display: inline-block; margin: 0px 0 15px 0;"><strong>${station.ptinteret}</strong></p><br>` : ''}
         <img class="station-img" src="${station.image && station.image.trim() !== '' ? 'images/' + station.image : station.imagelink}" alt="${station.nom}">
         <!-- Crédit de l'image -->
         <div class="image-credit">
