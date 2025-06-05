@@ -379,6 +379,7 @@ body.modal-open {
 <div id="station" class="station-detail">
   <h1>Chargement...</h1>
 </div>
+<button id="scrollTopBtn" style="display: none;">⬆</button>
 <!-- La modale cachée initialement -->
 <div id="fullscreen-modal" class="modal" style="display:none;">
   <iframe id="modal-iframe" class="enrail-iframe"></iframe>
@@ -621,85 +622,66 @@ const filteredKeys = Object.keys(stationsData).filter(key => {
       searchResults.style.display = "block";
     }
   });
-  
-  // Gestion de la modale (assurez-vous que les éléments existent dans votre HTML)
+});
+document.addEventListener('DOMContentLoaded', function() {
   const modal = document.getElementById('fullscreen-modal');
   const modalIframe = document.getElementById('modal-iframe');
   const closeModal = document.getElementById('close-modal');
 
-  if (!closeModal) {
-    console.error("L'élément 'close-modal' n'a pas été trouvé.");
+  if (!modal || !modalIframe || !closeModal) {
+    console.error("Un ou plusieurs éléments de la modale n'ont pas été trouvés.");
     return;
   }
 
-  // Écouteur pour chaque bouton "Agrandir"
-  document.querySelectorAll('.fullscreen-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      const iframe = this.previousElementSibling;
+  // Utilisation de la délégation d'événements sur le body
+  document.body.addEventListener('click', function(e) {
+    if (e.target && e.target.classList.contains('fullscreen-btn')) {
+      const iframe = e.target.previousElementSibling;
       if (iframe && iframe.src) {
         modalIframe.src = iframe.src;
         modal.style.display = 'flex';
-        closeModal.style.display = 'block';  // Afficher le bouton de fermeture
+        closeModal.style.display = 'block';
         document.body.classList.add('modal-open');
+        console.log("Modale ouverte avec succès.");
       }
-    });
+    }
   });
-
+  
   // Écouteur pour fermer la modale
   closeModal.addEventListener('click', function() {
     modal.style.display = 'none';
     closeModal.style.display = 'none';
     modalIframe.src = "";
     document.body.classList.remove('modal-open');
+    console.log("Modale fermée.");
   });
 });
-        // Écouteur pour chaque bouton "Agrandir"
-        document.querySelectorAll('.fullscreen-btn').forEach(function(btn) {
-          btn.addEventListener('click', function() {
-            const iframe = this.previousElementSibling;
-            if (iframe && iframe.src) {
-              modalIframe.src = iframe.src;
-              modal.style.display = 'flex';
-              closeModal.style.display = 'block';  // Afficher le bouton de fermeture
-              // Par exemple, pour bloquer le scroll de background
-              document.body.classList.add('modal-open');
-              console.log("Modale ouverte avec succès.");
-            }
-          });
-        });
 
-        // Écouteur pour fermer la modale et masquer le bouton
-        closeModal.addEventListener('click', function() {
-          modal.style.display = 'none';
-          closeModal.style.display = 'none';
-          modalIframe.src = "";
-          document.body.classList.remove('modal-open');
-          console.log("Modale fermée.");
-        });
-
-// Bouton retour en haut
-const scrollTopBtn = document.getElementById("scrollTopBtn");
-  window.onscroll = function() {
-    if(document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        scrollTopBtn.style.display = "block";
-    } else {
-        scrollTopBtn.style.display = "none";
-    }
-    scrollTopBtn.addEventListener("click", function() {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    });
+document.addEventListener("DOMContentLoaded", function() {
+  // Récupération du bouton "Retour en haut"
+  const scrollTopBtn = document.getElementById("scrollTopBtn");
+  if (!scrollTopBtn) {
+    console.error("L'élément 'scrollTopBtn' n'a pas été trouvé.");
+    return; // Arrête l'exécution si l'élément n'existe pas
   }
-      // Initialisation de la carte Leaflet
-      const map = L.map('map').setView([station.statistiques[0].latitude, station.statistiques[0].longitude], 15);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap'
-      }).addTo(map);
-      L.marker([station.statistiques[0].latitude, station.statistiques[0].longitude]).addTo(map)
-        .bindPopup(station.nom)
-        .openPopup();
+  
+  // Ajout de l'écouteur de clic une seule fois
+  scrollTopBtn.addEventListener("click", function() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+  
+  // Mise à jour de l'affichage du bouton lors du scroll
+  window.addEventListener("scroll", function() {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      scrollTopBtn.style.display = "block";
+    } else {
+      scrollTopBtn.style.display = "none";
+    }
+  });
+});
 
 // Fonction pour charger le footer depuis un fichier HTML
 function loadFooter() {
