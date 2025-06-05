@@ -112,7 +112,12 @@ fetch('stations.json')
   .then(response => response.json())
   .then(data => {
     const stationsContainer = document.getElementById('stations');
-    Object.keys(data).forEach(key => {
+    // On récupère et trie les clés en se basant sur le nom de la gare (data[key].nom)
+    const sortedKeys = Object.keys(data).sort((a, b) => {
+      return data[a].nom.localeCompare(data[b].nom);
+    });
+    
+    sortedKeys.forEach(key => {
       const station = data[key];
       const card = document.createElement('a');
       card.href = `station.html?station=${encodeURIComponent(key)}`;
@@ -135,18 +140,19 @@ fetch('stations.json')
     });
   })
   .catch(error => console.error('Erreur chargement gares:', error));
-  // Fonction pour charger le footer depuis un fichier HTML
-  function loadFooter() {
-    fetch('footer.html')
-      .then(response => response.text())
-      .then(html => {
-        document.body.insertAdjacentHTML('beforeend', html);
-      })
-      .catch(error => console.warn('Erreur lors du chargement du footer:', error));
-  }
 
-  // Appeler la fonction pour charger le footer
-  loadFooter();
+// Fonction pour charger le footer depuis un fichier HTML
+function loadFooter() {
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(html => {
+      document.body.insertAdjacentHTML('beforeend', html);
+    })
+    .catch(error => console.warn('Erreur lors du chargement du footer:', error));
+}
+
+// Appeler la fonction pour charger le footer
+loadFooter();
 </script>
 
 </body>
