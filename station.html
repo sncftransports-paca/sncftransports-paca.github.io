@@ -259,6 +259,22 @@
   .styled-table td:last-child {
     padding-left: 10px; /* Ajoute 15px d'espace à gauche de la deuxième colonne */
   }
+  .search-bar {
+      width: 90%;
+      max-width: 400px;
+      padding: 12px 20px;
+      margin: 20px auto;
+      display: block;
+      border: 2px solid #ddd;
+      border-radius: 30px;
+      font-size: 16px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .search-bar:focus {
+      outline: none;
+      border-color: #5e9cff;
+      box-shadow: 0 0 10px rgba(94, 156, 255, 0.6);
+    }
   .modal {
   position: fixed;
   top: 50%;
@@ -289,6 +305,59 @@
 body.modal-open {
   overflow: hidden;
 }
+/* Conteneur de la barre de recherche et des résultats */
+    .search-container {
+      width: 100%;
+      max-width: 400px;
+      margin: 20px auto;
+      position: relative; /* Si vous souhaitez d'autres positionnements ou animations ultérieurement */
+    }
+    /* Style de la barre de recherche */
+    .search-bar {
+      width: 100%;
+      padding: 12px 20px;
+      border: 2px solid #ddd;
+      border-radius: 30px;
+      font-size: 16px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      box-sizing: border-box;
+    }
+    .search-bar:focus {
+      outline: none;
+      border-color: #5e9cff;
+      box-shadow: 0 0 10px rgba(94,156,255,0.6);
+    }
+    /* Style du conteneur des résultats de recherche */
+    .search-results {
+      width: 100%;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      display: none;
+      margin-top: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .search-results ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .search-results li {
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+    }
+    .search-results li a {
+      display: block;
+      text-decoration: none;
+      color: #333;
+    }
+    .search-results li:hover {
+      background-color: #f0f0f0;
+    }
+    /* Supprimer la bordure du dernier élément */
+    .search-results li:last-child {
+      border-bottom: none;
+    }
   </style>
 
 </head>
@@ -297,6 +366,14 @@ body.modal-open {
   <div class="retour-container">
     <!-- Bouton de retour aux gares -->
     <a href="stations.html" class="button">← Retour aux gares</a>
+  </div>
+  
+<div class="search-container">
+    <!-- Barre de recherche -->
+    <input type="text" id="search" placeholder="Rechercher une gare…" class="search-bar">
+    
+    <!-- Conteneur affichant la liste des résultats sous la barre -->
+    <div id="searchResults" class="search-results"></div>
   </div>
 
 <div id="station" class="station-detail">
@@ -313,218 +390,269 @@ body.modal-open {
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-     
-// Associe types aux SVG
-function getTypeIcon(type) {
-  switch(type) {
-    case 'TER':
-      return '<img src="icons/ter.svg" alt="TER">';
-    case 'TGV inOui':
-      return '<img src="icons/tgv_inoui.svg" alt="TGV inOui">';
-    case 'TGV OUIGO':
-      return '<img src="icons/tgv_ouigo_grande_vitesse.svg" alt="TGV OUIGO Grande Vitesse">';
-    case 'Intercités':
-      return '<img src="icons/intercites.svg" alt="Intercités">';
-    case 'métro':
-      return '<img src="icons/metro.svg" alt="Métro">';
-    case 'tram':
-      return '<img src="icons/tram.svg" alt="Tramway">';
-    default:
-      return '';
-  }
-}
+// Variable globale pour stocker les données des gares
+let stationsData = null;
 
-function getUrlIcon(type) {
-  switch(type) {
-    case 'TGV inOui':
-      return 'construction.html';
-    case 'TGV OUIGO':
-      return 'construction.html';
-    case 'Intercités':
-      return 'construction.html';
-    case 'métro':
-      return '<img src="icons/metro.svg" alt="Métro">';
-    case 'tram':
-      return '<img src="icons/tram.svg" alt="Tramway">';
-    default:
-      return '';
-  }
-}
-
-// Paramètre l'URL
+// Fonction pour récupérer des paramètres d'URL
 function getQueryParam(param) {
   const urlParams = new URLSearchParams(window.location.search);
   return urlParams.get(param);
 }
 
-const stationKey = getQueryParam('station');
+// Fonction qui associe un type à une icône
+function getTypeIcon(type) {
+  switch (type) {
+    case 'train':
+      return '<img src="icons/train.svg" alt="Train">';
+    case 'TER':
+      return '<img src="icons/ter.svg" alt="TER">';
+    case 'Intercités':
+      return '<img src="icons/intercites.svg" alt="Intercités">';
+    case 'TGV OUIGO':
+      return '<img src="icons/tgv_ouigo_grande_vitesse.svg" alt="TGV OUIGO Grande Vitesse">';
+    case 'TGV inOui':
+      return '<img src="icons/tgv_inoui.svg" alt="TGV inOui">';
+    case 'métro':
+      return '<img src="icons/metro.svg" alt="Métro">';
+    case 'tram':
+      return '<img src="icons/tram.svg" alt="Tramway">';
+    default:
+      return '';
+  }
+}
 
-fetch('stations.json')
-  .then(response => response.json())
-  .then(data => {
-    const station = data[stationKey];
-    const container = document.getElementById('station');
-    var lignec = station.lignes
-    var typec = lignec.lines
-    if (station) {
-      container.innerHTML = `
-        <h1 style="padding: 5px; margin: 10px 0px 7px 0px">${station.nom}</h1>
-        ${station.ptinteret ? `<p style="font-size: 25px; color: #fff; background-color: #5E3E2C; padding: 2px; display: inline-block; margin: 0px 0 15px 0;"><strong>${station.ptinteret}</strong></p><br>` : ''}
-        <img class="station-img" src="${station.image && station.image.trim() !== '' ? 'images/' + station.image : station.imagelink}" alt="${station.nom}">
-        <!-- Crédit de l'image -->
-        <div class="image-credit">
-          <p>Image de <a href="${station.imagepage}" target="_blank">${station.imageauthor}</a> ${station.imagelicense}</p>
-        </div>
-        <div>
-  ${station.lignes.map(ligne => `
-    <div>
-      ${ligne.type === "TER"
-    ? `<span class="badge-type">${getTypeIcon(ligne.type)}</span>`
-    : `<span class="badge-type"><a href="construction.html">${getTypeIcon(ligne.type)}</a></span>`
+// Fonction d'affichage des détails d'une gare
+function displayStationDetail(station) {
+  const container = document.getElementById('station');
+  container.innerHTML = `
+    <h1 style="padding: 5px; margin: 10px 0 7px 0;">${station.nom}</h1>
+    ${
+      station.ptinteret
+        ? `<p style="font-size: 25px; color: #fff; background-color: #5E3E2C; padding: 2px; display: inline-block; margin: 0 0 15px 0;"><strong>${station.ptinteret}</strong></p><br>`
+        : ''
     }
-
-      ${ligne.type === "TER" ? ligne.lines.map(numero => `
-        <a href="ligne.html?ligne=${encodeURIComponent(numero)}" class="badge">
-          <img src="icons/lignes/${numero.replace(/ /g, "_")}.svg" alt="${numero}" onerror="this.onerror=null; this.src='icons/lignes/${numero.replace(/ /g, "_")}.jpeg';">
-  </a>
-`).join('') : ''}
+    <img class="station-img" src="${station.image && station.image.trim() !== '' ? 'images/' + station.image : station.imagelink}" alt="${station.nom}">
+    <!-- Crédit de l'image -->
+    <div class="image-credit">
+      <p>Image de <a href="${station.imagepage}" target="_blank">${station.imageauthor}</a> ${station.imagelicense || ''}</p>
     </div>
-  `).join('')}
-</div>
-
-<div class="table-container">
-  <table class="styled-table">
-    <colgroup>
-      <col style="width: 40%;">
-      <col style="width: 60%;">
-    </colgroup>
-    <tbody>
-      <tr>
-        <td><strong>Ouverture</strong></td>
-        <td>${station.statistiques[0].ouverture}</td>
-      </tr>
-      <tr>
-        <td><strong>Voies</strong></td>
-        <td>${station.statistiques[0].voies}</td>
-      </tr>
-      <tr>
-        <td><strong>Quais</strong></td>
-        <td>${station.statistiques[0].quais}</td>
-      </tr>
-      <!--<tr>
-        <td><strong>Zone</strong></td>
-        <td>${station.statistiques[0].zone_tarifaire}</td>
-      </tr>-->
-      <tr>
-        <td><strong>Accessibilité</strong></td>
-        <td>${station.statistiques[0].accessible}</td>
-      </tr>
-      <tr>
-        <td><strong>Fréquentation</strong></td>
-        <td>${station.statistiques[0].frequentation}</td>
-      </tr>
-      <tr>
-        <td><strong>Communes</strong></td>
-        <td>${station.statistiques[0].communes.join(', ')}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<br>
-
-<!-- Affichage des sorties sous forme de cartes horizontales -->
-<div class="sorties-section fade-in full-width">
-  <div class="sorties-cards" style="display: flex; flex-direction: column; gap: 15px;">
-    ${station.sorties.map(sortie => {
-      // Vérifier la présence d'informations supplémentaires
-      const hasExtraDetails = sortie.ptinteret || sortie.repere;
-      return `
-      <div class="sortie-card" style="
-            display: flex;
-            align-items: flex-start; /* On laisse le contenu textuel en haut pour ne pas pénaliser les cas avec des infos additionnelles */
-            gap: 15px;
-            background: #e0f7fa;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            padding: 10px;
-          ">
-        <!-- Cercle affichant uniquement le numéro, toujours centré -->
-        <div class="sortie-number" style="
-              width: 40px;
-              height: 40px;
-              background: #0088cc;
-              border-radius: 50%;
+    <div>
+      ${station.lignes.map(ligne => `
+        <div>
+          ${
+            ligne.type === "TER"
+              ? `<span class="badge-type">${getTypeIcon(ligne.type)}</span>`
+              : `<span class="badge-type"><a href="construction.html">${getTypeIcon(ligne.type)}</a></span>`
+          }
+          ${
+            ligne.type === "TER" ? ligne.lines.map(numero => `
+              <a href="ligne.html?ligne=${encodeURIComponent(numero)}" class="badge">
+                <img src="icons/lignes/${numero.replace(/ /g, "_")}.svg" alt="${numero}" onerror="this.onerror=null; this.src='icons/lignes/${numero.replace(/ /g, "_")}.jpeg';">
+              </a>
+            `).join('') : ''
+          }
+        </div>
+      `).join('')}
+    </div>
+    <div class="table-container">
+      <table class="styled-table">
+        <colgroup>
+          <col style="width: 40%;">
+          <col style="width: 60%;">
+        </colgroup>
+        <tbody>
+          <tr>
+            <td><strong>Ouverture</strong></td>
+            <td>${station.statistiques[0].ouverture}</td>
+          </tr>
+          <tr>
+            <td><strong>Voies</strong></td>
+            <td>${station.statistiques[0].voies}</td>
+          </tr>
+          <tr>
+            <td><strong>Quais</strong></td>
+            <td>${station.statistiques[0].quais}</td>
+          </tr>
+          <tr>
+            <td><strong>Accessibilité</strong></td>
+            <td>${station.statistiques[0].accessible}</td>
+          </tr>
+          <tr>
+            <td><strong>Fréquentation</strong></td>
+            <td>${station.statistiques[0].frequentation}</td>
+          </tr>
+          <tr>
+            <td><strong>Communes</strong></td>
+            <td>${station.statistiques[0].communes.join(', ')}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <br>
+    <!-- Affichage des sorties -->
+    <div class="sorties-section fade-in full-width">
+      <div class="sorties-cards" style="display: flex; flex-direction: column; gap: 15px;">
+        ${station.sorties.map(sortie => {
+          const hasExtraDetails = sortie.ptinteret || sortie.repere;
+          return `
+            <div class="sortie-card" style="
               display: flex;
-              align-items: center;
-              justify-content: center;
-              color: #fff;
-              font-weight: bold;
-              font-size: 25px;
-              align-self: center; /* Le cercle reste centré par rapport à la hauteur totale de la carte */
+              align-items: flex-start;
+              gap: 15px;
+              background: #e0f7fa;
+              border-radius: 8px;
+              box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+              padding: 10px;
             ">
-          ${sortie.numero}
-        </div>
-        <!-- Détails de la sortie -->
-        <div class="sortie-details" style="flex: 1;">
-          <!-- Conteneur de la description avec min-height et alignement dynamique -->
-          <div class="description-container" style="
-               display: flex;
-               align-items: ${hasExtraDetails ? 'flex-start' : 'center'};
-               min-height: ${hasExtraDetails ? '0px' : '40px'};  /* Pour que le conteneur ait au moins la hauteur du cercle */
-          ">
-            <p style="margin: 0; font-size: 20px; color: #333;">${sortie.description}</p>
-          </div>
-          <!-- Informations additionnelles affichées en-dessous, si disponibles -->
-          ${sortie.ptinteret ? `<p style="font-size: 17px; color: #fff; background-color: #5E3E2C; padding: 2px; display: inline-block; margin: 5px 0 2px 0;"><strong>${sortie.ptinteret}</strong></p><br>` : ''}
-          ${sortie.repere ? `<p style="margin: 2px 0 3px 0; font-size: 17px; color: #444; border: 2px solid black; padding: 1px; display: inline-block;">${sortie.repere}</p>` : ''}
-        </div>
+              <div class="sortie-number" style="
+                width: 40px;
+                height: 40px;
+                background: #0088cc;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                font-weight: bold;
+                font-size: 25px;
+                align-self: center;
+              ">
+                ${sortie.numero}
+              </div>
+              <div class="sortie-details" style="flex: 1;">
+                <div class="description-container" style="
+                  display: flex;
+                  align-items: ${hasExtraDetails ? 'flex-start' : 'center'};
+                  min-height: ${hasExtraDetails ? '0' : '40px'};
+                ">
+                  <p style="margin: 0; font-size: 20px; color: #333;">${sortie.description}</p>
+                </div>
+                ${
+                  sortie.ptinteret
+                    ? `<p style="font-size: 17px; color: #fff; background-color: #5E3E2C; padding: 2px; display: inline-block; margin: 5px 0 2px 0;"><strong>${sortie.ptinteret}</strong></p><br>`
+                    : ''
+                }
+                ${
+                  sortie.repere
+                    ? `<p style="margin: 2px 0 3px 0; font-size: 17px; color: #444; border: 2px solid black; padding: 1px; display: inline-block;">${sortie.repere}</p>`
+                    : ''
+                }
+              </div>
+            </div>
+          `;
+        }).join('')}
       </div>
-      `;
-    }).join('')}
-  </div>
-</div>
-        </div>
-        </div>
-        
-        <!-- Carte -->
-        <div id="map" class="fade-in"></div>
-        
-        <div id="iframe-container" class="station-detail fade-in">
-  <h2>Écrans <a href="https://enrail.org" class="enrail-link">Enrail</a></h2>
-  <p>Écran des prochains départs</p>
-  <div class="iframe-wrapper">
-    <iframe src="${station.enrail_links[0].link}" title="Intégration Enrail, prochains départs" class="enrail-iframe"></iframe>
-    <button class="fullscreen-btn">Agrandir</button>
-  </div>
-  <p>Écran des prochaines arrivées</p>
-  <div class="iframe-wrapper">
-    <iframe src="${station.enrail_links[2].link}" title="Informations supplémentaires" class="enrail-iframe"></iframe>
-    <button class="fullscreen-btn">Agrandir</button>
-  </div>
-</div>
+    </div>
+    <!-- Carte -->
+    <div id="map" class="fade-in"></div>
+    <!-- Écrans Enrail -->
+    <div id="iframe-container" class="station-detail fade-in">
+      <h2>Écrans <a href="https://enrail.org" class="enrail-link">Enrail</a></h2>
+      <p>Écran des prochains départs</p>
+      <div class="iframe-wrapper">
+        <iframe src="${station.enrail_links[0].link}" title="Intégration Enrail, prochains départs" class="enrail-iframe"></iframe>
+        <button class="fullscreen-btn">Agrandir</button>
+      </div>
+      <p>Écran des prochaines arrivées</p>
+      <div class="iframe-wrapper">
+        <iframe src="${station.enrail_links[2].link}" title="Informations supplémentaires" class="enrail-iframe"></iframe>
+        <button class="fullscreen-btn">Agrandir</button>
+      </div>
+    </div>
+    <!-- Bouton Voir plus -->
+    <div class="buttons">
+      <a href="${station.enrail_links[1].link}" class="button" target="_blank">Voir plus</a>
+    </div>
+  `;
+  
+  // Initialisation de la carte avec Leaflet
+  const map = L.map('map').setView([station.statistiques[0].latitude, station.statistiques[0].longitude], 15);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap'
+  }).addTo(map);
+  L.marker([station.statistiques[0].latitude, station.statistiques[0].longitude]).addTo(map)
+    .bindPopup(station.nom)
+    .openPopup();
+}
 
+// Tout le code s'exécute une fois que le DOM est entièrement chargé
+document.addEventListener("DOMContentLoaded", function() {
+  // Chargement des données depuis le fichier JSON
+  fetch('stations.json')
+    .then(response => response.json())
+    .then(data => {
+      stationsData = data;
+      // Si l'URL contient une clé de station, affiche ses détails
+      const stationKey = getQueryParam('station');
+      if (stationKey && stationsData[stationKey]) {
+        displayStationDetail(stationsData[stationKey]);
+      }
+    })
+    .catch(error => console.error('Erreur chargement station:', error));
+  
+  // Gestion de la barre de recherche et affichage dynamique de la liste des gares
+  const searchInput = document.getElementById('search');
+  const searchResults = document.getElementById('searchResults');
+  searchInput.addEventListener('input', function() {
+    const query = this.value.trim().toLowerCase();
+    searchResults.innerHTML = "";
+    if (query === "" || !stationsData) {
+      searchResults.style.display = "none";
+      return;
+    }
+    // Filtre les gares dont le nom contient la chaîne recherchée
+const filteredKeys = Object.keys(stationsData).filter(key => {
+  return stationsData[key].nom.toLowerCase().includes(query);
+}).slice(0, 5); // Limite à 5 résultats
+    if (filteredKeys.length > 0) {
+      const ul = document.createElement("ul");
+      filteredKeys.forEach(key => {
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        a.href = "station.html?station=" + encodeURIComponent(key);
+        a.textContent = stationsData[key].nom;
+        li.appendChild(a);
+        ul.appendChild(li);
+      });
+      searchResults.appendChild(ul);
+      searchResults.style.display = "block";
+    } else {
+      searchResults.innerHTML = "<p style='padding:10px;'>Aucune gare trouvée.</p>";
+      searchResults.style.display = "block";
+    }
+  });
+  
+  // Gestion de la modale (assurez-vous que les éléments existent dans votre HTML)
+  const modal = document.getElementById('fullscreen-modal');
+  const modalIframe = document.getElementById('modal-iframe');
+  const closeModal = document.getElementById('close-modal');
 
-        
+  if (!closeModal) {
+    console.error("L'élément 'close-modal' n'a pas été trouvé.");
+    return;
+  }
 
-        
-        
-        <!-- Bouton Voir plus -->
-        <div class="buttons">
-        <a href="${station.enrail_links[1].link}" class="button" target="_blank">Voir plus</a>
-        </div>
-      `;
+  // Écouteur pour chaque bouton "Agrandir"
+  document.querySelectorAll('.fullscreen-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      const iframe = this.previousElementSibling;
+      if (iframe && iframe.src) {
+        modalIframe.src = iframe.src;
+        modal.style.display = 'flex';
+        closeModal.style.display = 'block';  // Afficher le bouton de fermeture
+        document.body.classList.add('modal-open');
+      }
+    });
+  });
 
-        // On suppose ici que la modale et le bouton sont déjà présents dans le HTML statique (voir plus haut)
-        const modal = document.getElementById('fullscreen-modal');
-        const modalIframe = document.getElementById('modal-iframe');
-        const closeModal = document.getElementById('close-modal');
-
-        if (!closeModal) {
-          console.error("L'élément 'close-modal' n'a pas été trouvé.");
-          return;
-        }
-
+  // Écouteur pour fermer la modale
+  closeModal.addEventListener('click', function() {
+    modal.style.display = 'none';
+    closeModal.style.display = 'none';
+    modalIframe.src = "";
+    document.body.classList.remove('modal-open');
+  });
+});
         // Écouteur pour chaque bouton "Agrandir"
         document.querySelectorAll('.fullscreen-btn').forEach(function(btn) {
           btn.addEventListener('click', function() {
@@ -573,13 +701,6 @@ const scrollTopBtn = document.getElementById("scrollTopBtn");
         .bindPopup(station.nom)
         .openPopup();
 
-    } else {
-      container.innerHTML = "<h1>Station introuvable</h1>";
-    }
-  })
-  .catch(error => {
-    console.error('Erreur chargement station:', error);
-  });
 // Fonction pour charger le footer depuis un fichier HTML
 function loadFooter() {
     fetch('footer.html')
