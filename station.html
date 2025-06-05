@@ -259,7 +259,38 @@
   .styled-table td:last-child {
     padding-left: 10px; /* Ajoute 15px d'espace à gauche de la deuxième colonne */
   }
+  .modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  background-color: #fff;
+  z-index: 1000; /* S'assurer que la modale est au-dessus du contenu */
+  box-shadow: 0 0 10px rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-modal {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1001; /* Supérieur à la modale pour être cliquable */
+  padding: 8px 12px;
+  background-color: none;
+  border: none;
+  color: #f44336;
+  font-size: 18px;
+  cursor: pointer;
+}
+body.modal-open {
+  overflow: hidden;
+}
   </style>
+
 </head>
 <body>
 
@@ -271,7 +302,13 @@
 <div id="station" class="station-detail">
   <h1>Chargement...</h1>
 </div>
+<!-- La modale cachée initialement -->
+<div id="fullscreen-modal" class="modal" style="display:none;">
+  <iframe id="modal-iframe" class="enrail-iframe"></iframe>
+</div>
 
+<!-- Bouton "Fermer" à l'extérieur de la modale -->
+<button id="close-modal" class="close-modal" style="display:none;">X</button>
 
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -454,14 +491,20 @@ fetch('stations.json')
         <div id="map" class="fade-in"></div>
         
         <div id="iframe-container" class="station-detail fade-in">
-        <h2>Écrans <a href="https://enrail.org" class="enrail-link">Enrail</a></h2>
-        <p>Écran des prochains départs</p>
-        <!-- Iframe avec le lien vers Enrail -->
-        <iframe src="${station.enrail_links[0].link}" title="Intégration Enrail, prochains départs" class="enrail-iframe"></iframe>
-        <p>Écran des prochaines arrivées</p>
-        <!-- Iframe avec le lien vers Enrail -->
-        <iframe src="${station.enrail_links[2].link}" title="Informations supplémentaires" class="enrail-iframe"></iframe>
-        </div>
+  <h2>Écrans <a href="https://enrail.org" class="enrail-link">Enrail</a></h2>
+  <p>Écran des prochains départs</p>
+  <div class="iframe-wrapper">
+    <iframe src="${station.enrail_links[0].link}" title="Intégration Enrail, prochains départs" class="enrail-iframe"></iframe>
+    <button class="fullscreen-btn">Agrandir</button>
+  </div>
+  <p>Écran des prochaines arrivées</p>
+  <div class="iframe-wrapper">
+    <iframe src="${station.enrail_links[2].link}" title="Informations supplémentaires" class="enrail-iframe"></iframe>
+    <button class="fullscreen-btn">Agrandir</button>
+  </div>
+</div>
+
+
         
 
         
@@ -471,6 +514,41 @@ fetch('stations.json')
         <a href="${station.enrail_links[1].link}" class="button" target="_blank">Voir plus</a>
         </div>
       `;
+
+        // On suppose ici que la modale et le bouton sont déjà présents dans le HTML statique (voir plus haut)
+        const modal = document.getElementById('fullscreen-modal');
+        const modalIframe = document.getElementById('modal-iframe');
+        const closeModal = document.getElementById('close-modal');
+
+        if (!closeModal) {
+          console.error("L'élément 'close-modal' n'a pas été trouvé.");
+          return;
+        }
+
+        // Écouteur pour chaque bouton "Agrandir"
+        document.querySelectorAll('.fullscreen-btn').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            const iframe = this.previousElementSibling;
+            if (iframe && iframe.src) {
+              modalIframe.src = iframe.src;
+              modal.style.display = 'flex';
+              closeModal.style.display = 'block';  // Afficher le bouton de fermeture
+              // Par exemple, pour bloquer le scroll de background
+              document.body.classList.add('modal-open');
+              console.log("Modale ouverte avec succès.");
+            }
+          });
+        });
+
+        // Écouteur pour fermer la modale et masquer le bouton
+        closeModal.addEventListener('click', function() {
+          modal.style.display = 'none';
+          closeModal.style.display = 'none';
+          modalIframe.src = "";
+          document.body.classList.remove('modal-open');
+          console.log("Modale fermée.");
+        });
+
 // Bouton retour en haut
 const scrollTopBtn = document.getElementById("scrollTopBtn");
   window.onscroll = function() {
