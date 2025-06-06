@@ -41,15 +41,18 @@
     }
     
     .footer .footer-social-icon {
-      width: 24px;
-      height: 24px;
+      width: 30px;
+      height: 30px;
     }
     
     .footer .footer-social-icon img {
       width: 100%;
       height: auto;
+      transition: transform 0.3s ease-in-out;
     }
-
+  .footer-social-icon img:hover {
+    transform: scale(1.2); /* Agrandit l'image de 20% */
+  }
     p.mentions {
       font-size: 12px;
     }
