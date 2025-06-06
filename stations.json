@@ -780,5 +780,36 @@
         {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/cannes"},
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Cannes"}
       ]
+    },
+    "istres": {
+      "nom": "Istres",
+      "lignes": [
+        {"type": "TER", "lines": ["TER 7B"]}
+      ],
+      "lien": "station.html?station=istres",
+      "imagelink": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Gare_d%27Istres.jpg/250px-Gare_d%27Istres.jpg",
+      "imagepage": "https://commons.wikimedia.org/w/index.php?curid=17425335",
+      "imageauthor": "Lunon92 © Métro-Pole.net",
+      "imagelicense": "— Photographie personnelle, CC BY-SA 3.0",
+      "statistiques": [ 
+        {
+          "latitude": 43.5152778,
+          "longitude": 4.980277777777778,
+          "ouverture": "1875",
+          "voies": "2",
+          "quais": "2",
+          "accessible": "N/A",
+          "communes": ["Istres"],
+          "frequentation": "58 978 voyageurs (2023)"
+        }
+      ],
+      "sorties": [
+        {"numero": "1", "description": "Sortie principale"}
+      ],
+      "enrail_links": [
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Istres"},
+        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/istres"},
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Istres"}
+      ]
     }
   }         
