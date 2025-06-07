@@ -31,21 +31,29 @@
         "type": "TER"
       },
       {
-        "id": 2,
+        "id": "TER 2",
         "nom": "Ligne Marseille - Les Arcs",
         "depart": "Marseille Saint-Charles",
         "arrivee": "Les Arcs - Draguignan",
         "type": "TER",
-        "distance": "91 km",
-        "duree": "1h30",
-        "links": [
-          {"stationname": "Marseille Saint-Charles", "stationlink": "station.html?station=Marseille%20Saint-Charles"},
-          {"stationname": "Les Arcs - Draguignan", "stationlink": "construction.html"}
-        ],
+        "distance": "",
+        "duree": "",
         "stations": [
-          { "id": "Marseille Saint-Charles", "nom": "Marseille Saint-Charles" },
-          { "id": "aubagne", "nom": "Aubagne" },
-          { "id": "toulon", "nom": "Toulon" }
+          { "id": "Marseille Saint-Charles"},
+          { "id": "toulon", "nom": "Toulon" },
+          { "id": "toulon-sainte-musse", "nom": "Toulon Sainte-Musse" },
+          { "id": "la-garde", "nom": "La Garde" },
+          { "id": "la-pauline", "nom": "La Pauline" },
+          { "id": "sollies-pont", "nom": "Solliès-Pont" },
+          { "id": "cuers-pierrefeu", "nom": "Cuers-Pierrefeu" },
+          { "id": "puget-ville", "nom": "Puget-Ville" },
+          { "id": "carnoules", "nom": "Carnoules" },
+          { "id": "pignans", "nom": "Pignans" },
+          { "id": "gonfaron", "nom": "Gonfaron" },
+          { "id": "le-luc-et-le-cannet", "nom": "Le Luc-et-le-Cannet" },
+          { "id": "vidauban", "nom": "Vidauban" },
+          { "id": "les-arcs-draguignan", "nom": "Les Arcs-Draguignan" }
+
   ]
       },
       {
