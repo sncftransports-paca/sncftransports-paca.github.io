@@ -842,5 +842,36 @@
         {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/sausset-pins"},
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Sausset-les-Pins"}
       ]
+    },
+    "carry-le-rouet": {
+      "nom": "Carry-le-Rouet",
+      "lignes": [
+        {"type": "TER", "lines": ["TER 7B"]}
+      ],
+      "lien": "station.html?station=carry-le-rouet",
+      "imagelink": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Sausset-les-Pins_gare.jpg/1024px-Sausset-les-Pins_gare.jpg",
+      "imagepage": "https://commons.wikimedia.org/w/index.php?curid=11098715",
+      "imageauthor": "Didier Duforest",
+      "imagelicense": "— Travail personnel, CC BY-SA 3.0",
+      "statistiques": [ 
+        {
+          "latitude": 43.332864,
+          "longitude": 5.110001,
+          "ouverture": "15/10/1915",
+          "voies": "2",
+          "quais": "2",
+          "accessible": "inconnu",
+          "communes": ["Sausset-les-Pins"],
+          "frequentation": "71 131 voyageurs (2023)"
+        }
+      ],
+      "sorties": [
+        {"numero": "1", "description": "Sortie principale"}
+      ],
+      "enrail_links": [
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Sausset-les-Pins"},
+        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/sausset-pins"},
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Sausset-les-Pins"}
+      ]
     }
   }         
