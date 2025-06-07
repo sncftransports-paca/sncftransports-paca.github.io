@@ -2,7 +2,7 @@
     "Marseille Saint-Charles": {
       "nom": "Marseille Saint-Charles",
       "lignes": [
-        {"type": "TER", "lines": ["TER 1", "TER 2"]},
+        {"type": "TER", "lines": ["TER 1", "TER 2", "TER 6", "TER 7A", "TER 7B", "TER 8", "TER 9", "TER 10", "TER 11", "TER 12", "TER 13"]},
         {"type": "TGV inOui", "lines": ["TGV 1", "TGV 2"]},
         {"type": "TGV OUIGO", "lines":["OUIGO 1", "OUIGO 2"]},
         {"type": "Intercités", "lines": ["IC1"]},
@@ -96,7 +96,7 @@
         }
       ],
       "sorties": [
-        {"numero": "1", "description": "Sortie principale"}
+        {"numero": "1", "description": "Avenue Henri Dunant"}
       ],
       "enrail_links": [
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Pas%20des%20Lanciers"},
@@ -128,7 +128,7 @@
         }
       ],
       "sorties": [
-        {"numero": "1", "description": "Sortie principale"}
+        {"numero": "1", "description": "Boulevard Louis Frangin"}
       ],
       "enrail_links": [
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Marseille%20Blancarde"},
@@ -193,7 +193,7 @@
         }
       ],
       "sorties": [
-        {"numero": "1", "description": "Sortie principale"}
+        {"numero": "1", "description": "Boulevard Saint-Roch"}
       ],
       "enrail_links": [
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Avignon%20Centre"},
@@ -228,7 +228,8 @@
         }
       ],
       "sorties": [
-        {"numero": "1", "description": "Sortie principale"}
+        {"numero": "1", "description": "Place de l'Europe", "repere": "Parkings"},
+        {"numero": "2", "description": "Chemin des Anciens Vergers"}
       ],
       "enrail_links": [
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Avignon%20TGV"},
@@ -597,15 +598,15 @@
         {"type": "TER", "lines": ["TER 7B"]}
       ],
       "lien": "station.html?station=croix-sainte",
-      "image": "",
-      "imagelink": "https://upload.wikimedia.org/wikipedia/commons/8/87/Martigues_—_Vue_générale_depuis_la_chapelle_Notre-Dame-des-Marins.jpg",
-      "imagepage": "https://commons.wikimedia.org/w/index.php?curid=7871637",
-      "imageauthor": "Airair",
-      "imagelicense": "— Travail personnel, CC BY-SA 3.0",
+      "image": "croix-sainte.jpeg",
+      "imagelink": "",
+      "imagepage": "https://github.com/garaytj",
+      "imageauthor": "Le J",
+      "imagelicense": "— CC BY-NC-ND 4.0",
       "statistiques": [ 
         {
-          "latitude": 43.4280556,
-          "longitude": 4.974722222222223,
+          "latitude": 43.4088889,
+          "longitude": 5.019722222222222,
           "ouverture": "1875",
           "voies": "2",
           "quais": "2",
@@ -636,8 +637,8 @@
       "imagelicense": "— Travail personnel, CC BY-SA 4.0",
       "statistiques": [ 
         {
-          "latitude": 43.4280556,
-          "longitude": 4.974722222222223,
+          "latitude": 43.3133333,
+          "longitude": 5.3675,
           "ouverture": "3 février 2014",
           "voies": "1",
           "quais": "1",
@@ -655,5 +656,191 @@
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Arenc%20Euroméditerranée"}
       ],
       "ptinteret": "Tour CMA CGM"
+    },
+    "martigues": {
+      "nom": "Martigues",
+      "lignes": [
+        {"type": "TER", "lines": ["TER 7B"]}
+      ],
+      "lien": "station.html?station=martigues",
+      "imagelink": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Gare_de_Martigues.JPG/1024px-Gare_de_Martigues.JPG",
+      "imagepage": "https://commons.wikimedia.org/wiki/File:Gare_de_Martigues.JPG",
+      "imageauthor": "Florian Pépellin",
+      "imagelicense": "— Travail personnel, CC BY-SA 3.0",
+      "statistiques": [ 
+        {
+          "latitude": 43.392777,
+          "longitude": 5.025555,
+          "ouverture": "15/10/1915",
+          "voies": "2 (+ voies de service)",
+          "quais": "2",
+          "accessible": "N/A",
+          "communes": ["Martigues (Lavéra)"],
+          "frequentation": "35 992 voyageurs/an (2021)"
+        }
+      ],
+      "sorties": [
+        {"numero": "1", "description": "Sortie principale"}
+      ],
+      "enrail_links": [
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Martigues"},
+        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/martigues"},
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Martigues"}
+      ]
+    },
+    "cavaillon": {
+      "nom": "Cavaillon",
+      "lignes": [
+        {"type": "TER", "lines": ["TER 9"]}
+      ],
+      "lien": "station.html?station=cavaillon",
+      "imagelink": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Gare_de_Cavaillon.JPG/1024px-Gare_de_Cavaillon.JPG",
+      "imagepage": "https://commons.wikimedia.org/w/index.php?curid=27566609",
+      "imageauthor": "Marianne Casamance",
+      "imagelicense": "— Travail personnel, CC BY-SA 3.0",
+      "statistiques": [ 
+        {
+          "latitude": 43.8347222,
+          "longitude": 5.043611111111111,
+          "ouverture": "29/12/1868",
+          "voies": "5 (+ voies de service)",
+          "quais": "3",
+          "accessible": "N/A",
+          "communes": ["Cavaillon"],
+          "frequentation": "223 401 voyageurs/an (2023)"
+        }
+      ],
+      "sorties": [
+        {"numero": "1", "description": "Sortie principale"}
+      ],
+      "enrail_links": [
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Cavaillon"},
+        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/cavaillon"},
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Cavaillon"}
+      ]
+    },
+    "aubagne": {
+      "nom": "Aubagne",
+      "lignes": [
+        {"type": "TER", "lines": ["TER 1"]}
+      ],
+      "lien": "station.html?station=aubagne",
+      "imagelink": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Gare_d%27Aubagne_voies_vers_Marseille.jpg/1024px-Gare_d%27Aubagne_voies_vers_Marseille.jpg",
+      "imagepage": "https://commons.wikimedia.org/w/index.php?curid=49043018",
+      "imageauthor": "Ludo33",
+      "imagelicense": "— Travail personnel, CC BY-SA 4.0",
+      "statistiques": [ 
+        {
+          "latitude": 43.2961111,
+          "longitude": 5.566388888888889,
+          "ouverture": "20/10/1858",
+          "voies": "5 (dont une en impasse)",
+          "quais": "3 centraux",
+          "accessible": "N/A",
+          "communes": ["Aubagne"],
+          "frequentation": "1 057 406 voyageurs/an (2023)"
+        }
+      ],
+      "sorties": [
+        {"numero": "1", "description": "Sortie principale"}
+      ],
+      "enrail_links": [
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Aubagne"},
+        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/aubagne"},
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Aubagne"}
+      ]
+    },
+    "cannes": {
+      "nom": "Cannes",
+      "lignes": [
+        {"type": "TER", "lines": ["TER 3", "TER 4", "TER 6"]}
+      ],
+      "lien": "station.html?station=cannes",
+      "imagelink": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Gare_de_Cannes.jpg/1024px-Gare_de_Cannes.jpg",
+      "imagepage": "https://commons.wikimedia.org/w/index.php?curid=40475134",
+      "imageauthor": "Tiia Monto",
+      "imagelicense": "— CC BY-SA 3.0",
+      "statistiques": [ 
+        {
+          "latitude": 43.5541667,
+          "longitude": 7.019722222222222,
+          "ouverture": "10/04/1863",
+          "voies": "3",
+          "quais": "2",
+          "accessible": "N/A",
+          "communes": ["Cannes"],
+          "frequentation": "5 392 921 voyageurs/an (2023)"
+        }
+      ],
+      "sorties": [
+        {"numero": "1", "description": "Sortie principale"}
+      ],
+      "enrail_links": [
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Cannes"},
+        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/cannes"},
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Cannes"}
+      ]
+    },
+    "istres": {
+      "nom": "Istres",
+      "lignes": [
+        {"type": "TER", "lines": ["TER 7B"]}
+      ],
+      "lien": "station.html?station=istres",
+      "imagelink": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Gare_d%27Istres.jpg/250px-Gare_d%27Istres.jpg",
+      "imagepage": "https://commons.wikimedia.org/w/index.php?curid=17425335",
+      "imageauthor": "Lunon92 © Métro-Pole.net",
+      "imagelicense": "— Photographie personnelle, CC BY-SA 3.0",
+      "statistiques": [ 
+        {
+          "latitude": 43.5152778,
+          "longitude": 4.980277777777778,
+          "ouverture": "1875",
+          "voies": "2",
+          "quais": "2",
+          "accessible": "N/A",
+          "communes": ["Istres"],
+          "frequentation": "58 978 voyageurs (2023)"
+        }
+      ],
+      "sorties": [
+        {"numero": "1", "description": "Sortie principale"}
+      ],
+      "enrail_links": [
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Istres"},
+        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/istres"},
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Istres"}
+      ]
+    },
+    "sausset-les-pins": {
+      "nom": "Sausset-les-Pins",
+      "lignes": [
+        {"type": "TER", "lines": ["TER 7B"]}
+      ],
+      "lien": "station.html?station=sausset-les-pins",
+      "imagelink": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Sausset-les-Pins_gare.jpg/1024px-Sausset-les-Pins_gare.jpg",
+      "imagepage": "https://commons.wikimedia.org/w/index.php?curid=11098715",
+      "imageauthor": "Didier Duforest",
+      "imagelicense": "— Travail personnel, CC BY-SA 3.0",
+      "statistiques": [ 
+        {
+          "latitude": 43.332864,
+          "longitude": 5.110001,
+          "ouverture": "15/10/1915",
+          "voies": "2",
+          "quais": "2",
+          "accessible": "inconnu",
+          "communes": ["Sausset-les-Pins"],
+          "frequentation": "71 131 voyageurs (2023)"
+        }
+      ],
+      "sorties": [
+        {"numero": "1", "description": "Sortie principale"}
+      ],
+      "enrail_links": [
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Sausset-les-Pins"},
+        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/sausset-pins"},
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Sausset-les-Pins"}
+      ]
     }
   }         

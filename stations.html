@@ -77,12 +77,33 @@
     .image-credit a:hover {
       text-decoration: underline;
     }
+    .search-bar {
+    width: 90%;
+    max-width: 400px;
+    padding: 12px 20px;
+    margin: 20px auto; /* Centre horizontalement la barre */
+    display: block;
+    border: 2px solid #ddd;
+    border-radius: 30px;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  .search-bar:focus {
+    outline: none;
+    border-color: #5e9cff;
+    box-shadow: 0 0 10px rgba(94, 156, 255, 0.6);
+  }
   </style>
 </head>
 <body>
 
-<h1>Nos gares</h1>
 
+
+
+<h1>Nos gares</h1>
+<!-- Barre de recherche -->
+<input type="text" id="search" placeholder="Rechercher une gare..." class="search-bar">
 <div class="stations-grid" id="stations"></div>
 
 <script>
@@ -108,11 +129,19 @@ function getTypeIcon(type) {
   }
 }
 
+// Récupérer et afficher les gares triées par ordre alphabétique
 fetch('stations.json')
   .then(response => response.json())
   .then(data => {
     const stationsContainer = document.getElementById('stations');
-    Object.keys(data).forEach(key => {
+
+    // Récupère et trie les clés selon le nom des gares
+    const sortedKeys = Object.keys(data).sort((a, b) => {
+      return data[a].nom.localeCompare(data[b].nom);
+    });
+
+    // Création des cartes pour chaque gare
+    sortedKeys.forEach(key => {
       const station = data[key];
       const card = document.createElement('a');
       card.href = `station.html?station=${encodeURIComponent(key)}`;
@@ -133,20 +162,32 @@ fetch('stations.json')
       `;
       stationsContainer.appendChild(card);
     });
+
+    // Ajoute un écouteur d'événement sur la barre de recherche
+    const searchInput = document.getElementById('search');
+    searchInput.addEventListener('input', function() {
+      const query = this.value.toLowerCase();
+      // Pour chaque carte de gare, on vérifie si le nom de la gare correspond au texte recherché
+      document.querySelectorAll('.station-card').forEach(card => {
+        const stationName = card.querySelector('h2').textContent.toLowerCase();
+        card.style.display = stationName.includes(query) ? '' : 'none';
+      });
+    });
   })
   .catch(error => console.error('Erreur chargement gares:', error));
-  // Fonction pour charger le footer depuis un fichier HTML
-  function loadFooter() {
-    fetch('footer.html')
-      .then(response => response.text())
-      .then(html => {
-        document.body.insertAdjacentHTML('beforeend', html);
-      })
-      .catch(error => console.warn('Erreur lors du chargement du footer:', error));
-  }
 
-  // Appeler la fonction pour charger le footer
-  loadFooter();
+// Fonction pour charger le footer depuis un fichier HTML
+function loadFooter() {
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(html => {
+      document.body.insertAdjacentHTML('beforeend', html);
+    })
+    .catch(error => console.warn('Erreur lors du chargement du footer:', error));
+}
+
+// Appeler la fonction pour charger le footer
+loadFooter();
 </script>
 
 </body>
