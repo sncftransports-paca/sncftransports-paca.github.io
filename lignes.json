@@ -101,6 +101,32 @@
           { "id": "st-chamas", "nom": "Saint-Chamas" },
           { "id": "miramas", "nom": "Miramas" }
         ]
+      },
+      {
+        "id": "TER 7B",
+        "nom": "Ligne Marseille - Miramas (via Côte Bleue)",
+        "depart": "Marseille Saint-Charles",
+        "arrivee": "Miramas",
+        "type": "TER",
+        "distance": "N/A km",
+        "duree": "N/A min",
+        "stations": [
+          { "id": "Marseille Saint-Charles"},
+          { "id": "arenc-euromediteranee"},
+          { "id": "l-estaque"},
+          { "id": "niolon", "nom": "Niolon"},
+          { "id": "la-redonne-ensues", "nom": "La Redonne Ensuès" },
+          { "id": "carry-le-rouet"},
+          { "id": "sausset-les-pins" },
+          { "id": "la-couronne-carro", "nom": "La Couronne Carro" },
+          { "id": "martigues"},
+          { "id": "croix-sainte"},
+          { "id": "port-de-bouc", "nom": "Port-de-Bouc" },
+          { "id": "fos-sur-mer"},
+          { "id": "rassuen", "nom": "Rassuen" },
+          { "id": "istres"},
+          { "id": "miramas"}
+        ]
       }
     ]
   }
