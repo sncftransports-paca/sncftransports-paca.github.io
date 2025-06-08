@@ -873,5 +873,36 @@
         {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/sausset-pins"},
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Sausset-les-Pins"}
       ]
+    },
+    "cassis": {
+      "nom": "Cassis",
+      "lignes": [
+        {"type": "TER", "lines": ["TER 1"]}
+      ],
+      "lien": "station.html?station=cassis",
+      "imagelink": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Voies-gare-cassis-dir-nice.jpg/1024px-Voies-gare-cassis-dir-nice.jpg",
+      "imagepage": "https://commons.wikimedia.org/w/index.php?curid=148392091",
+      "imageauthor": "Remontees",
+      "imagelicense": "— Travail personnel, CC BY-SA 4.0",
+      "statistiques": [ 
+        {
+          "latitude": 43.2344444,
+          "longitude": 5.552777777777778,
+          "ouverture": "28/05/1859",
+          "voies": "2 (+ embranchements)",
+          "quais": "2 (latéraux)",
+          "accessible": "inconnu",
+          "communes": ["Cassis"],
+          "frequentation": "346 076 voyageurs (2023)"
+        }
+      ],
+      "sorties": [
+        {"numero": "1", "description": "Sortie principale"}
+      ],
+      "enrail_links": [
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Cassis"},
+        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/cassis"},
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Cassis"}
+      ]
     }
   }         
