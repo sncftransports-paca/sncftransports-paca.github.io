@@ -435,7 +435,7 @@ function displayStationDetail(station) {
     <img class="station-img" src="${station.image && station.image.trim() !== '' ? 'images/' + station.image : station.imagelink}" alt="${station.nom}">
     <!-- Crédit de l'image -->
     <div class="image-credit">
-      <p>Image de <a href="${station.imagepage}" target="_blank">${station.imageauthor}</a> ${station.imagelicense || ''}</p>
+      <p class="img-credit">Image de <a href="${station.imagepage}" target="_blank">${station.imageauthor}</a> ${station.imagelicense || ''}</p>
     </div>
     <div>
       ${station.lignes.map(ligne => `
