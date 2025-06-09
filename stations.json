@@ -1,5 +1,5 @@
 {
-    "Marseille Saint-Charles": {
+    "marseille-st-charles": {
       "nom": "Marseille Saint-Charles",
       "lignes": [
         {"type": "TER", "lines": ["TER 1", "TER 2", "TER 6", "TER 7A", "TER 7B", "TER 8", "TER 9", "TER 10", "TER 11", "TER 12", "TER 13"]},
@@ -38,7 +38,7 @@
       "repere": "Centre"
     },
 
-    "Toulon": {
+    "toulon": {
       "nom": "Toulon",
       "lignes": [
         {"type": "TER", "lines": ["TER 1",""]},
@@ -104,7 +104,7 @@
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Pas%20des%20Lanciers"}
       ]
     },
-    "Marseille-Blancarde": {
+    "marseille-blancarde": {
       "nom": "Marseille Blancarde",
       "lignes": [
         {"type": "TER", "lines": ["TER 1", "TER 6"]}
