@@ -9,16 +9,16 @@
           {"stationname": "Hyères", "stationlink": "construction.html"}
         ],
         "stations": [
-          { "id": "Marseille Saint-Charles", "nom": "Marseille Saint-Charles" },
-          { "id": "Marseille-Blancarde", "nom": "Marseille Blancarde"},
-          { "id": "aubagne", "nom": "Aubagne" },
-          { "id": "cassis", "nom": "Cassis" },
+          { "id": "marseille-st-charles"},
+          { "id": "marseille-blancarde"},
+          { "id": "aubagne"},
+          { "id": "cassis"},
           { "id": "la-ciotat-ceyreste", "nom": "La Ciotat - Ceyreste" },
           { "id": "st-cyr-les-lecques-la-cadière", "nom": "Saint-Cyr — Les Lecques — La Cadière" },
           { "id": "bandol", "nom": "Bandol" },
           { "id": "ollioules-sanary-sur-mer", "nom": "Ollioules — Sanary-sur-Mer" },
           { "id": "la-seyne-six-fours", "nom": "La Seyne — Six Fours" },
-          { "id": "toulon", "nom": "Toulon" },
+          { "id": "toulon"},
           { "id": "toulon-sainte-musse", "nom": "Toulon Sainte-Musse" },
           { "id": "la-garde", "nom": "La Garde" },
           { "id": "la-pauline", "nom": "La Pauline" },
@@ -39,8 +39,8 @@
         "distance": "",
         "duree": "",
         "stations": [
-          { "id": "Marseille Saint-Charles"},
-          { "id": "toulon", "nom": "Toulon" },
+          { "id": "marseille-st-charles"},
+          { "id": "toulon"},
           { "id": "toulon-sainte-musse", "nom": "Toulon Sainte-Musse" },
           { "id": "la-garde", "nom": "La Garde" },
           { "id": "la-pauline", "nom": "La Pauline" },
@@ -101,13 +101,13 @@
         "distance": "N/A km",
         "duree": "N/A min",
         "stations": [
-          { "id": "Marseille Saint-Charles", "nom": "Marseille Saint-Charles" },
-          { "id": "l-estaque", "nom": "L'Estaque"},
-          { "id": "pas-des-lanciers", "nom": "Pas-des-Lanciers" },
-          { "id": "vitrolles-aeroport-marseille-provence", "nom": "Vitrolles Aéroport Marseille Provence" },
-          { "id": "rognac", "nom": "Rognac" },
-          { "id": "st-chamas", "nom": "Saint-Chamas" },
-          { "id": "miramas", "nom": "Miramas" }
+          { "id": "marseille-st-charles"},
+          { "id": "l-estaque"},
+          { "id": "pas-des-lanciers"},
+          { "id": "vitrolles-aeroport-marseille-provence"},
+          { "id": "rognac"},
+          { "id": "st-chamas"},
+          { "id": "miramas"}
         ]
       },
       {
@@ -119,7 +119,7 @@
         "distance": "N/A km",
         "duree": "N/A min",
         "stations": [
-          { "id": "Marseille Saint-Charles"},
+          { "id": "marseille-st-charles"},
           { "id": "arenc-euromediteranee"},
           { "id": "l-estaque"},
           { "id": "niolon", "nom": "Niolon"},
