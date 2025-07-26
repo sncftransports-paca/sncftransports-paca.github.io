@@ -57,13 +57,21 @@
   ]
       },
       {
-        "id": 3,
-        "nom": "Avignon - Cavaillon",
-        "depart": "Avignon Centre",
-        "arrivee": "Cavaillon",
+        "id": "TER 3",
+        "nom": "Les Arcs - Nice",
+        "depart": "Les Arcs-Draguignan",
+        "arrivee": "Nice",
         "type": "TER",
-        "distance": "23 km",
-        "duree": "25 min"
+        "distance": "",
+        "duree": "",
+        "stations": [
+          { "id": "les-arcs-draguignan", "nom": "Les Arcs-Draguignan"},
+          { "id": "frejus", "nom": "Fréjus"},
+          { "id": "st-raphael-valescure", "nom": "Saint-Raphaël-Valescure"},
+          { "id": "boulouris-sur-mer", "nom": "Boulouris/Mer"},
+          { "id": "le-dramont", "nom": "Le Dramont"},
+          { "id": "nice-ville"}
+        ]
       },
       {
         "id": 4,
