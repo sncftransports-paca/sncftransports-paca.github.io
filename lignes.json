@@ -79,8 +79,8 @@
         "depart": "Toulon",
         "arrivee": "Marseille Saint-Charles",
         "type": "TER",
-        "distance": "65 km",
-        "duree": "1h"
+        "distance": "",
+        "duree": ""
       },
       {
         "id": 5,
