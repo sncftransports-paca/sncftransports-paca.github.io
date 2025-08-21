@@ -904,5 +904,36 @@
         {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/cassis"},
         {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Cassis"}
       ]
+    },
+    "saint-cyr-les-lecques-la-cadiere": {
+      "nom": "Saint-Cyr-Les Lecques - La Cadière",
+      "lignes": [
+        {"type": "TER", "lines": ["TER 1"]}
+      ],
+      "lien": "station.html?station=saint-cyr-les-lecques-la-cadiere",
+      "imagelink": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Gare_St-Cyr-Les_Lecques-La_Cadière_%2883%29.jpg/1280px-Gare_St-Cyr-Les_Lecques-La_Cadière_%2883%29.jpg",
+      "imagepage": "https://commons.wikimedia.org/wiki/File:Gare_St-Cyr-Les_Lecques-La_Cadière_(83).jpg",
+      "imageauthor": "Florian Pépellin",
+      "imagelicense": "— Travail personnel, CC BY-SA 3.0",
+      "statistiques": [ 
+        {
+          "latitude": 43.1852778,
+          "longitude": 5.703888888888889,
+          "ouverture": "03/05/1859",
+          "voies": "2",
+          "quais": "2",
+          "accessible": "inconnu",
+          "communes": ["Saint-Cyr-sur-Mer"],
+          "frequentation": "inconnue"
+        }
+      ],
+      "sorties": [
+        {"numero": "1", "description": "Sortie principale"}
+      ],
+      "enrail_links": [
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Departures&station=Saint-Cyr%20Les%20Lecques%20-%20La%20Cadière"},
+        {"style": "sncf-gare", "link": "https://www.garesetconnexions.sncf/fr/gares-services/saint-cyr-lecques-cadiere"},
+        {"style": "enrail", "link": "https://enrail.org/sncf/?mode=Arrivals&station=Saint-Cyr%20Les%20Lecques%20-%20La%20Cadière"}
+      ]
     }
   }         
