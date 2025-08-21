@@ -3,70 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <title>Accueil - SNCF Transports PACA</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #eef2f7;
-      margin: 0;
-      padding: 20px;
-    }
-    header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    header h1 {
-      color: #005baa;
-      font-size: 2.5em;
-      margin-bottom: 10px;
-    }
-    .lignes-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-    .ligne-card {
-      background: white;
-      border-radius: 15px;
-      padding: 20px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-      text-align: center;
-      transition: transform 0.3s;
-    }
-    .ligne-card:hover {
-      transform: translateY(-5px);
-    }
-    .ligne-card img {
-      width: 60px;
-      height: 60px;
-      margin-bottom: 10px;
-    }
-    .ligne-card h2 {
-      font-size: 1.2em;
-      margin: 10px 0;
-      color: #333;
-    }
-    .ligne-card a {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 8px 15px;
-      background: #00796b;
-      color: white;
-      text-decoration: none;
-      border-radius: 20px;
-      font-size: 14px;
-      transition: background 0.3s;
-    }
-    .ligne-card a:hover {
-      background: #004d40;
-    }
-  </style>
+  <link rel="stylesheet" href="assets/stylesheets/index.css">
 </head>
 <body>
 
 <header>
   <h1>Bienvenue sur SNCF Transports PACA</h1>
+  <!-- Barre de recherche -->
+<input type="text" id="search" placeholder="Rechercher une gare..." class="search-bar">
+<div class="stations-grid" id="stations"></div>
   <p>Choisissez une ligne :</p>
 </header>
 
