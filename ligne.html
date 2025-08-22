@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Détail Ligne - SNCF Transports PACA</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <link rel="stylesheet" href="assets/stylesheets/ligne.html" />
+  <link rel="stylesheet" href="assets/stylesheets/ligne.css" />
   </style>
 </head>
 <body>
@@ -114,21 +114,8 @@
           map.fitBounds(lineCoords);
         }
       }
-    
-    // Charge le footer
-    function loadFooter() {
-      fetch('footer.html')
-        .then(res => res.text())
-        .then(html => {
-          document.body.insertAdjacentHTML('beforeend', html);
-        })
-        .catch(error => console.warn('Erreur lors du chargement du footer:', error));
-    }
-    
-    loadFooter();
   });
     </script>
-    
-
+    <script src="addons/footer.js"></script>
 </body>
 </html>
