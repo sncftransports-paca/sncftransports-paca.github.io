@@ -1,0 +1,98 @@
+function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+    // Vérifier l'existence d'une image
+  function imageExists(url, callback) {
+    const img = new Image();
+    img.onload = () => callback(true);
+    img.onerror = () => callback(false);
+    img.src = url;
+  }
+    const ligneId = getQueryParam('ligne');
+    
+    Promise.all([
+      fetch('lignes.json').then(res => res.json()),
+      fetch('stations.json').then(res => res.json())
+    ])
+    .then(([lignesData, stationsData]) => {
+      const ligne = lignesData.lignes.find(l => l.id == ligneId);
+      const container = document.getElementById('ligne');
+    
+      if (!ligne) {
+        container.innerHTML = "<h1>Ligne introuvable</h1>";
+        return;
+      }
+    
+      // Affichage principal
+      container.innerHTML = `
+        <div class="logo-zou">
+          <img src="icons/logo-zou-color.svg" alt="Logo ZOU PACA">
+        </div>
+        <h1>${ligne.nom}</h1>
+        <div class="badge">${ligne.type}</div>
+        <p><strong>Départ :</strong> ${ligne.depart}</p>
+        <p><strong>Arrivée :</strong> ${ligne.arrivee}</p>
+        <p><strong>Distance :</strong> ${ligne.distance || "?"}</p>
+        <p><strong>Durée estimée :</strong> ${ligne.duree || "?"}</p>
+        <div class="map-ligne">
+          <h2>Plan de la ligne</h2>
+        </div>
+        <div id="map"></div>
+        
+      `;
+    
+    // Construction de l'URL de l'image
+    const imageUrl = `maps/${imagemap(ligneId)}.svg`;
+    const mapLigneDiv = container.querySelector('.map-ligne');
+
+    // Vérification de l'image avant affichage
+    imageExists(imageUrl, (exists) => {
+      if (exists) {
+        mapLigneDiv.innerHTML += `<img src="${imageUrl}" alt="Plan de la ligne">`;
+      } else {
+        mapLigneDiv.innerHTML += `<p>Plan indisponible</p>`;
+      }
+    });
+      const map = L.map('map').setView([43.3, 5.4], 8);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap'
+      }).addTo(map);
+    
+      // Fonction pour normaliser les noms
+      function normalize(str) {
+        return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+      }
+
+      function imagemap(str) {
+        return str.replace(/ /g, "");
+      }
+    
+      const lineCoords = [];
+    
+      if (ligne.stations && ligne.stations.length) {
+        ligne.stations.forEach(stationRef => {
+  const stationData = stationsData[stationRef.id] ||
+    Object.values(stationsData).find(s => normalize(s.nom) === normalize(stationRef.nom));
+
+  if (stationData?.statistiques?.[0]) {
+    const { latitude, longitude } = stationData.statistiques[0];
+    lineCoords.push([latitude, longitude]);
+
+    const stationLink = stationData.lien && stationData.lien !== ""
+      ? stationData.lien
+      : 'construction.html';
+
+    L.marker([latitude, longitude])
+      .addTo(map)
+      .bindPopup(`<a href="${stationLink}" style="text-decoration:none;color:#00796b;font-weight:bold;">${stationData.nom}</a>`);
+  }
+});
+    
+        // Dessine la ligne
+        if (lineCoords.length > 1) {
+          L.polyline(lineCoords, { color: '#00796b', weight: 4 }).addTo(map);
+          map.fitBounds(lineCoords);
+        }
+      }
+  });
