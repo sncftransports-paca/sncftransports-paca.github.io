@@ -44,7 +44,7 @@
         {"type": "TER", "lines": ["TER 1",""]},
         {"type": "TGV inOui", "lines": ["TGV 1"]}
       ],
-      "lien": "station.html?station=Toulon",
+      "lien": "station.html?station=toulon",
       "image": "toulon.jpg",
       "imagepage": "https://commons.wikimedia.org/w/index.php?curid=61014862",
       "imageauthor": "Chabe01",
